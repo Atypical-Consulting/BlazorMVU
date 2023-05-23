@@ -31,7 +31,7 @@ A Model-View-Update (MVU) pattern implementation for Blazor.
 
 ## 📖 Introduction
 
-BlazorMvu is a library that implements the Model-View-Update (MVU) pattern for Blazor. It provides a structured way to organize your Blazor components and manage their state, making your code more understandable and easier to maintain.
+**BlazorMVU** is a library that implements the Model-View-Update (MVU) pattern for Blazor. It provides a structured way to organize your Blazor components and manage their state, making your code more understandable and easier to maintain.
 
 ![Drag Racing](./assets/blazormvu.png)
 

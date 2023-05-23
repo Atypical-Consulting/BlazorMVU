@@ -20,32 +20,41 @@
   <details open>
     <summary>A basic counter</summary>
     <MvuCounter/>
+    Code: <a href="@($"{CodeUrl}MvuCounter.razor")" target="_blank">MvuCounter.razor</a>
   </details>
   <details>
     <summary>A simple text reverser</summary>
     <MvuReverser/>
+    Code: <a href="@($"{CodeUrl}MvuReverser.razor")" target="_blank">MvuReverser.razor</a>
   </details>
   <details>
     <summary>A password form with validation</summary>
     <MvuPasswordForm/>
+    Code: <a href="@($"{CodeUrl}MvuPasswordForm.razor")" target="_blank">MvuPasswordForm.razor</a>
   </details>
   <details>
     <summary>Fetch data with random error</summary>
     <MvuFetchRandomError/>
+    Code: <a href="@($"{CodeUrl}MvuFetchRandomError.razor")" target="_blank">MvuFetchRandomError.razor</a>
   </details>
   <details>
     <summary>Manage your Tasks</summary>
     <MvuTodoList Todos="@_todos"/>
+    Code: <a href="@($"{CodeUrl}MvuTodoList.razor")" target="_blank">MvuTodoList.razor</a>
   </details>
   <details>
     <summary>Fetch text from a URL</summary>
     <MvuFetchText>
       @context
     </MvuFetchText>
+    Code: <a href="@($"{CodeUrl}MvuFetchText.razor")" target="_blank">MvuFetchText.razor</a>
   </details>
 </article>
 
 @code {
+
+      private const string CodeUrl = 
+        "https://github.com/Atypical-Consulting/BlazorMVU/blob/main/src/BlazorMVU.Demo/Components/";
 
   readonly ImmutableList<MvuTodoList.Todo> _todos
     = new List<MvuTodoList.Todo>
