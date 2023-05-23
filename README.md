@@ -19,6 +19,7 @@ A Model-View-Update (MVU) pattern implementation for Blazor.
 ## 📝 Table of Contents
 
 * [Introduction](#-introduction)
+* [Motivation](#-motivation)
 * [Features](#-features)
 * [Installation](#-installation)
 * [Usage](#-usage)
@@ -32,6 +33,20 @@ A Model-View-Update (MVU) pattern implementation for Blazor.
 ## 📖 Introduction
 
 BlazorMvu is a library that implements the Model-View-Update (MVU) pattern for Blazor. It provides a structured way to organize your Blazor components and manage their state, making your code more understandable and easier to maintain.
+
+![Drag Racing](./assets/blazormvu.png)
+
+## 💡 Motivation
+
+The Elm architecture, or Model-View-Update (MVU), is a simple yet powerful pattern for structuring applications. It has gained popularity due to its simplicity, maintainability, and robustness. However, despite its advantages, the Elm architecture has not been widely adopted in the Blazor community.
+
+Blazor, as a framework, is flexible and allows for various design patterns to be implemented, including MVU. However, there hasn't been a straightforward way to implement the Elm architecture in Blazor - until now.
+
+The motivation behind BlazorMvu is to bring the benefits of the Elm architecture to the Blazor community. By providing a library that implements the MVU pattern, we aim to make it easier for developers to structure their Blazor applications in a way that is easy to understand, maintain, and test.
+
+We believe that the Elm architecture can greatly improve the developer experience when building Blazor applications. By reducing the complexity associated with state management and UI updates, developers can focus more on the business logic of their applications, leading to more robust and reliable software.
+
+We hope that BlazorMvu will serve as a valuable tool for the Blazor community and contribute to the growth and maturity of Blazor as a framework for building web applications.
 
 ## 📌 Features
 
@@ -52,6 +67,41 @@ dotnet build
 ## 📚 Usage
 
 To use the BlazorMvu library, inherit from the `MvuComponent<TModel, TMsg>` class in your Blazor component. Define your model and messages, and implement the Init and Update methods.
+
+```csharp
+<!-- Counter.razor -->
+@inherits MvuComponent<int, MvuCounter.Msg>
+
+<div class="grid">
+  <button class="btn btn-primary" @onclick="@(() => Dispatch(Msg.Decrement))">-</button>
+  <input type="text" value="@State" disabled />
+  <button class="btn btn-primary" @onclick="@(() => Dispatch(Msg.Increment))">+</button>
+</div>
+
+@code {
+  
+  // Messages
+  public enum Msg
+  {
+    Increment,
+    Decrement
+  }
+
+  // Initialize the model
+  protected override int Init()
+    => 0;
+
+  // Update the model based on the message
+  protected override int Update(Msg msg, int model)
+    => msg switch
+    {
+      Msg.Increment => model + 1,
+      Msg.Decrement => model - 1,
+      _ => model
+    };
+
+}
+```
 
 ## 🚀 Running the Tests
 
