@@ -18,15 +18,16 @@ A Model-View-Update (MVU) pattern implementation for Blazor.
 
 ## 📝 Table of Contents
 
-* Introduction
-* Features
-* Installation
-* Usage
-* Running the Tests
-* Contributing
-* License
-* Contact
-* Acknowledgements
+* [Introduction](#-introduction)
+* [Features](#-features)
+* [Installation](#-installation)
+* [Usage](#-usage)
+* [Running the Tests](#-running-the-tests)
+* [Contributing](#-contributing)
+* [License](#-license)
+* [Contact](#-contact)
+* [Acknowledgements](#-acknowledgements)
+* [Contributors](#-contributors)
 
 ## 📖 Introduction
 
