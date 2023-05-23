@@ -20,7 +20,7 @@ jobs:
 
       # Publish the site
       - name: Publish
-        run: dotnet publish BlazorMVU.sln -c:Release -o:publish -p:GHPages=true
+        run: dotnet publish src/BlazorMVU.Demo/BlazorMVU.Demo.csproj -c:Release -o:public -p:GHPages=true
 
       # Deploy the site
       - name: Deploy
