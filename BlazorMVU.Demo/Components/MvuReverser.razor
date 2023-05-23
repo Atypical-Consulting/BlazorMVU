@@ -1,0 +1,60 @@
+@inherits MvuComponent<MvuReverser.Model, MvuReverser.Msg>
+
+<div class="grid">
+  <label for="reverser-input">
+    <input 
+      id="reverser-input"
+      name="reverser-input"
+      type="text"
+      placeholder="Text to reverse"
+      value="@State.Content"
+      @oninput="@HandleTextChange"
+    />
+  </label>
+  <label for="reverser-result">
+    <input 
+      id="reverser-result"
+      name="reverser-result"
+      type="text"
+      placeholder="Reversed text"
+      value="@State.Reverse"
+    />
+  </label>
+</div>
+
+@code {
+
+  // Model
+  public record Model(string Content)
+  {
+    public string Reverse
+      => new(Content.Reverse().ToArray());
+  }
+
+  // Messages
+  public abstract record Msg
+  {
+    public record Change(string Content) : Msg;
+  }
+
+  // Initialize the model
+  protected override Model Init()
+    => new("");
+
+  // Update the model based on the message
+  protected override Model Update(Msg msg, Model model)
+    => msg switch
+    {
+      Msg.Change change => new Model(change.Content),
+      _ => model
+    };
+
+  // Handle the text change and dispatch a message
+  private void HandleTextChange(ChangeEventArgs obj)
+  {
+    string content = obj.Value?.ToString() ?? "";
+    var msg = new Msg.Change(content);
+    Dispatch(msg);
+  }
+
+}

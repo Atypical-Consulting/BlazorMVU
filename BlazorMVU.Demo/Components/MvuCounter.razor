@@ -1,0 +1,31 @@
+@inherits MvuComponent<int, MvuCounter.Msg>
+
+<div class="grid">
+  <button class="btn btn-primary" @onclick="@(() => Dispatch(Msg.Decrement))">-</button>
+  <input type="text" value="@State" disabled />
+  <button class="btn btn-primary" @onclick="@(() => Dispatch(Msg.Increment))">+</button>
+</div>
+
+@code {
+  
+  // Messages
+  public enum Msg
+  {
+    Increment,
+    Decrement
+  }
+
+  // Initialize the model
+  protected override int Init()
+    => 0;
+
+  // Update the model based on the message
+  protected override int Update(Msg msg, int model)
+    => msg switch
+    {
+      Msg.Increment => model + 1,
+      Msg.Decrement => model - 1,
+      _ => model
+    };
+
+}

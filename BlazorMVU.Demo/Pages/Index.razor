@@ -1,0 +1,49 @@
+﻿@page "/"
+@using System.Collections.Immutable
+
+<hgroup>
+  <h1>Blazor ❤️ MVU</h1>
+  <h2>A collection of MVU examples inspired by Elm architecture</h2>
+</hgroup>
+
+<article>
+  <h2>Examples</h2>
+  <details open>
+    <summary>A basic counter</summary>
+    <MvuCounter/>
+  </details>
+  <details>
+    <summary>A simple text reverser</summary>
+    <MvuReverser/>
+  </details>
+  <details>
+    <summary>A password form with validation</summary>
+    <MvuPasswordForm/>
+  </details>
+  <details>
+    <summary>Fetch data with random error</summary>
+    <MvuFetchRandomError/>
+  </details>
+  <details>
+    <summary>Manage your Tasks</summary>
+    <MvuTodoList Todos="@_todos"/>
+  </details>
+  <details>
+    <summary>Fetch text from a URL</summary>
+    <MvuFetchText>
+      @context
+    </MvuFetchText>
+  </details>
+</article>
+
+@code {
+
+  readonly ImmutableList<MvuTodoList.Todo> _todos
+    = new List<MvuTodoList.Todo>
+    {
+      new("Programming", false),
+      new("Cooking", true),
+      new("Cleaning", false)
+    }.ToImmutableList();
+
+}
