@@ -1,6 +1,5 @@
 # BlazorMVU
 A Model-View-Update (MVU) pattern implementation for Blazor.
-
 ---
 
 [![Atypical-Consulting - BlazorMVU](https://img.shields.io/static/v1?label=Atypical-Consulting&message=BlazorMVU&color=blue&logo=github)](https://github.com/Atypical-Consulting/BlazorMVU "Go to GitHub repo")
@@ -35,6 +34,9 @@ A Model-View-Update (MVU) pattern implementation for Blazor.
 BlazorMvu is a library that implements the Model-View-Update (MVU) pattern for Blazor. It provides a structured way to organize your Blazor components and manage their state, making your code more understandable and easier to maintain.
 
 ![Drag Racing](./assets/blazormvu.png)
+
+Demo: This Blazor project is deployed on [GitHub Pages](https://atypical-consulting.github.io/BlazorMVU/)
+
 
 ## 💡 Motivation
 
