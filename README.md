@@ -4,7 +4,7 @@ A Model-View-Update (MVU) pattern implementation for Blazor.
 ---
 
 [![Atypical-Consulting - BlazorMVU](https://img.shields.io/static/v1?label=Atypical-Consulting&message=BlazorMVU&color=blue&logo=github)](https://github.com/Atypical-Consulting/BlazorMVU "Go to GitHub repo")
-[![License: BSD-3-Clause](https://img.shields.io/badge/License-BSD--3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![stars - BlazorMVU](https://img.shields.io/github/stars/Atypical-Consulting/BlazorMVU?style=social)](https://github.com/Atypical-Consulting/BlazorMVU)
 [![forks - BlazorMVU](https://img.shields.io/github/forks/Atypical-Consulting/BlazorMVU?style=social)](https://github.com/Atypical-Consulting/BlazorMVU)
 
