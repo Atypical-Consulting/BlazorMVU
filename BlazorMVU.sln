@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorMVU.Demo", "BlazorMVU.Demo\BlazorMVU.Demo.csproj", "{427C9350-FC59-464A-A694-ED63EB5B3C39}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorMVU.Demo", "src\BlazorMVU.Demo\BlazorMVU.Demo.csproj", "{427C9350-FC59-464A-A694-ED63EB5B3C39}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorMVU.Tests", "BlazorMVU.Tests\BlazorMVU.Tests.csproj", "{271B53DA-8798-487B-95AC-6BE72F15561E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorMVU.Tests", "src\BlazorMVU.Tests\BlazorMVU.Tests.csproj", "{271B53DA-8798-487B-95AC-6BE72F15561E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
