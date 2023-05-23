@@ -65,8 +65,8 @@
       Msg.Fetch _ => model with { IsLoading = true, ErrorMessage = null },
       Msg.ReceiveWeather weatherData => model with { WeatherData = weatherData.WeatherData, IsLoading = false},
       Msg.Fail errorMessage => new Model(null, false, errorMessage.ErrorMessage),
-      _ => throw new ArgumentOutOfRangeException(nameof(msg))
-      };
+      _ => model
+    };
 
   // Simulate fetching weather data and dispatch a message
   private async Task FetchWeather()

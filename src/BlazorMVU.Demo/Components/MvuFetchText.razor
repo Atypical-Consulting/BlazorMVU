@@ -42,7 +42,7 @@
     => msg switch
     {
       Msg.GotText gotText => gotText.Result.IsSuccess ? new Model.Success(gotText.Result.Value) : new Model.Failure(),
-      _ => throw new ArgumentOutOfRangeException(nameof(msg))
+      _ => model
       };
 
   // Simulate fetching text and dispatch a message

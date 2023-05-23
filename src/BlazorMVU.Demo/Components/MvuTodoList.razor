@@ -54,7 +54,7 @@
       Msg.ToggleDone toggleDone => model with { Todos = model.Todos.Replace(toggleDone.Todo, toggleDone.Todo with { IsDone = !toggleDone.Todo.IsDone }) },
       Msg.DeleteTodo deleteTodo => model with { Todos = model.Todos.Remove(deleteTodo.Todo) },
       Msg.NewTodoChange newTodoChange => model with { NewTodo = newTodoChange.NewTodo },
-      _ => throw new ArgumentOutOfRangeException(nameof(msg))
+      _ => model
     };
 
   // Add a new todo
