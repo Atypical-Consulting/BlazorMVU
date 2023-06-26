@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <title>BlazorMVU Demo</title>
+    <base href="/BlazorMVU/"/>
+    <link href="css/pico.css" rel="stylesheet"/>
+    <link href="css/app.css" rel="stylesheet"/>
+
+    <!-- If you add any scoped CSS files, uncomment the following to load them
+    <link href="BlazorApp.DemoMVU.styles.css" rel="stylesheet" /> -->
+</head>
+
+<body>
+<main class="container">
+    <div id="app">
+        <span aria-busy="true">Loading...</span>
+    </div>
+
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+</main>
+<script src="_framework/blazor.webassembly.js" autostart="false"></script>
+    <script src="decode.min.js"></script>
+    <script src="brotliloader.min.js"></script>
+</body>
+
+</html>
