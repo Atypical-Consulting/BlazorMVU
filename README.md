@@ -55,6 +55,7 @@ We hope that BlazorMvu will serve as a valuable tool for the Blazor community an
 * MVU pattern implementation for Blazor
 * Demo components showcasing the usage of the library
 * Unit tests using BUnit
+* ... open to Pull Requests
 
 ## 📥 Installation
 
