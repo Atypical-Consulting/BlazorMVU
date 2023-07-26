@@ -33,7 +33,9 @@
   // Initialize the model
   protected override Model Init()
   {
+#pragma warning disable CS4014
     FetchText(); // <-- We don't await this, so it's fire and forget
+#pragma warning restore CS4014
     return new Model.Loading();
   }
 
