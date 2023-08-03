@@ -24,6 +24,13 @@
   </div>
 }
 
+@if (State.HasError)
+{
+  <div class="error">
+    @State.ErrorMessage
+  </div>
+}
+
 @code {
 
   // Model
@@ -62,7 +69,7 @@
   protected override Model Update(Msg msg, Model model)
     => msg switch
     {
-      Msg.Fetch _ => model with { IsLoading = true, ErrorMessage = null },
+      Msg.Fetch => model with { IsLoading = true, ErrorMessage = null },
       Msg.ReceiveWeather weatherData => model with { WeatherData = weatherData.WeatherData, IsLoading = false},
       Msg.Fail errorMessage => new Model(null, false, errorMessage.ErrorMessage),
       _ => model

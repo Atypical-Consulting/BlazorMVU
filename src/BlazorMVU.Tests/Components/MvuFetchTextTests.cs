@@ -3,6 +3,7 @@ using BlazorMVU.Demo.Shared;
 
 namespace BlazorMVU.Tests.Components;
 
+// ReSharper disable once ClassNeverInstantiated.Global
 public class TestMvuFetchText : MvuFetchText
 {
     public new void Dispatch(Msg msg)
@@ -12,20 +13,37 @@ public class TestMvuFetchText : MvuFetchText
 public class MvuFetchTextTests : TestContext
 {
     [Fact]
-    public void FetchText_ShowsLoadingInitially()
+    public async Task MvuFetchText_Success()
     {
         // Arrange
-        var cut = RenderComponent<TestMvuFetchText>();
+        var cut = RenderComponent<MvuFetchText>(parameters => parameters.Add(p => p.FetchDelay, 1));
+
+        // Wait a bit for the async method to finish
+        await Task.Delay(10);
 
         // Assert
-        cut.MarkupMatches("<h3>Fetch Text</h3><p>Loading...</p>");
+        cut.Instance.State
+            .Message.Should().Be("This is the fetched text.");
     }
 
     [Fact]
-    public async Task FetchText_ShowsErrorOnFailure()
+    public Task MvuFetchText_Loading()
     {
         // Arrange
-        var cut = RenderComponent<TestMvuFetchText>();
+        var cut = RenderComponent<MvuFetchText>(parameters => parameters.Add(p => p.FetchDelay, int.MaxValue));
+
+        // Assert
+        cut.Instance.State
+            .Message.Should().Be("Loading...");
+
+        return Task.CompletedTask;
+    }
+    
+    [Fact]
+    public async Task MvuFetchText_Failure()
+    {
+        // Arrange
+        var cut = RenderComponent<TestMvuFetchText>(parameters => parameters.Add(p => p.FetchDelay, -1));
 
         // Act
         await cut.InvokeAsync(() =>
@@ -34,26 +52,9 @@ public class MvuFetchTextTests : TestContext
             var msg = new MvuFetchText.Msg.GotText(failure);
             cut.Instance.Dispatch(msg);
         });
-
+        
         // Assert
-        cut.MarkupMatches("<h3>Fetch Text</h3><p>I was unable to load your book.</p>");
+        cut.Instance.State
+            .Message.Should().Be("I was unable to load your book.");
     }
-
-    // [Fact]
-    // public async Task FetchText_ShowsSuccessOnSuccess()
-    // {
-    //     // Arrange
-    //     var cut = RenderComponent<TestMvuFetchText>();
-    //
-    //     // Act
-    //     await cut.InvokeAsync(() =>
-    //     {
-    //         var success = MvuResult<string>.Success("Fetched text");
-    //         var msg = new MvuFetchText.Msg.GotText(success);
-    //         cut.Instance.Dispatch(msg);
-    //     });
-    //
-    //     // Assert
-    //     cut.MarkupMatches("<h3>Fetch Text</h3><pre>Fetched text</pre>");
-    // }
 }

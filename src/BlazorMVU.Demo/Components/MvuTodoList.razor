@@ -6,7 +6,7 @@
   <button @onclick="@AddTodo">Add</button>
 </div>
 
-@foreach (var todo in State.Todos)
+@foreach (Todo todo in State.Todos)
 {
   <div class="grid">
     <div>
@@ -50,7 +50,7 @@
   protected override Model Update(Msg msg, Model model)
     => msg switch
     {
-      Msg.AddTodo addTodo => model with {Todos = model.Todos.Add(new Todo(addTodo.Description, false)), NewTodo = ""},
+      Msg.AddTodo addTodo => new Model(model.Todos.Add(new Todo(addTodo.Description, false)), ""),
       Msg.ToggleDone toggleDone => model with { Todos = model.Todos.Replace(toggleDone.Todo, toggleDone.Todo with { IsDone = !toggleDone.Todo.IsDone }) },
       Msg.DeleteTodo deleteTodo => model with { Todos = model.Todos.Remove(deleteTodo.Todo) },
       Msg.NewTodoChange newTodoChange => model with { NewTodo = newTodoChange.NewTodo },

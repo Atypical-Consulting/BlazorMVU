@@ -6,6 +6,9 @@
 
   [Parameter]
   public RenderFragment<string>? ChildContent { get; set; }
+  
+  [Parameter]
+  public int FetchDelay { get; set; } = 1000;
 
   // Model
   public abstract record Model
@@ -43,7 +46,9 @@
   protected override Model Update(Msg msg, Model model)
     => msg switch
     {
-      Msg.GotText gotText => gotText.Result.IsSuccess ? new Model.Success(gotText.Result.Value) : new Model.Failure(),
+      Msg.GotText gotText => gotText.Result.IsSuccess
+        ? new Model.Success(gotText.Result.Value ?? "")
+        : new Model.Failure(),
       _ => model
       };
 
@@ -52,7 +57,7 @@
   {
     try
     {
-      await Task.Delay(1000);  // Simulate API call delay
+      await Task.Delay(FetchDelay);  // Simulate API call delay
       const string fullText = "This is the fetched text."; // Simulate received data
       var msg = new Msg.GotText(MvuResult<string>.Success(fullText));
       Dispatch(msg);
