@@ -85,7 +85,7 @@
       
       // Simulate error on 1/3 of the calls
       await Task.Delay(500);
-      bool willThrowError = RandomNumberGenerator.GetInt32(0, 3) == 0;
+      var willThrowError = RandomNumberGenerator.GetInt32(0, 3) == 0;
       if (willThrowError)
         throw new Exception("Something went wrong");
       

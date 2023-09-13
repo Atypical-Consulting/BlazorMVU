@@ -52,7 +52,7 @@
   // Handle the text change and dispatch a message
   private void HandleTextChange(ChangeEventArgs obj)
   {
-    string content = obj.Value?.ToString() ?? "";
+    var content = obj.Value?.ToString() ?? "";
     var msg = new Msg.Change(content);
     Dispatch(msg);
   }
