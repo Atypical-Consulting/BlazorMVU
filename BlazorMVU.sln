@@ -4,12 +4,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorMVU.Demo", "src\Blazo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorMVU.Tests", "src\BlazorMVU.Tests\BlazorMVU.Tests.csproj", "{271B53DA-8798-487B-95AC-6BE72F15561E}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_build", "build\_build.csproj", "{96D68EE9-8776-4F81-923C-ADEBB7B7D03B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{96D68EE9-8776-4F81-923C-ADEBB7B7D03B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96D68EE9-8776-4F81-923C-ADEBB7B7D03B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{427C9350-FC59-464A-A694-ED63EB5B3C39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{427C9350-FC59-464A-A694-ED63EB5B3C39}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{427C9350-FC59-464A-A694-ED63EB5B3C39}.Release|Any CPU.ActiveCfg = Release|Any CPU
