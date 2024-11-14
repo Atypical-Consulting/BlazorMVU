@@ -1,5 +1,5 @@
 namespace BlazorMVU.Demo.Shared;
-  
+
 public struct MvuResult<T>
 {
     public T? Value { get; }
@@ -15,7 +15,7 @@ public struct MvuResult<T>
 
     public static MvuResult<T> Success(T value)
         => new(value, null, true);
-    
+
     public static MvuResult<T> Failure(Exception? error)
         => new(default, error, false);
 }
