@@ -50,18 +50,3 @@
     Code: <a href="@($"{CodeUrl}MvuFetchText.razor")" target="_blank">MvuFetchText.razor</a>
   </details>
 </article>
-
-@code {
-
-      private const string CodeUrl = 
-        "https://github.com/Atypical-Consulting/BlazorMVU/blob/main/src/BlazorMVU.Demo/Components/";
-
-  readonly ImmutableList<MvuTodoList.Todo> _todos
-    = new List<MvuTodoList.Todo>
-    {
-      new("Programming", false),
-      new("Cooking", true),
-      new("Cleaning", false)
-    }.ToImmutableList();
-
-}
