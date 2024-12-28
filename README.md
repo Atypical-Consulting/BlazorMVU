@@ -57,6 +57,10 @@ We hope that BlazorMvu will serve as a valuable tool for the Blazor community an
 * Unit tests using BUnit
 * ... open to Pull Requests
 
+## Stats
+
+![Alt](https://repobeats.axiom.co/api/embed/26eb4f8ccaa87d22a857066599225c9f542a4070.svg "Repobeats analytics image")
+
 ## 📥 Installation
 
 Clone the repository and build the project:
