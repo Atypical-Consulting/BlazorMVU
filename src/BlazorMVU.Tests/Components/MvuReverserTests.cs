@@ -11,8 +11,8 @@ public class MvuReverserTests : TestContext
         var cut = RenderComponent<MvuReverser>();
 
         // Assert
-        Assert.Equal("", cut.Find("input").GetAttribute("value"));
-        Assert.Equal("", cut.Find("#reverser-result").TextContent);
+        cut.Find("input").GetAttribute("value").ShouldBe("");
+        cut.Find("#reverser-result").TextContent.ShouldBe("");
     }
 
     [Fact]
@@ -25,8 +25,8 @@ public class MvuReverserTests : TestContext
         cut.Find("#reverser-input").Input("test");
 
         // Assert
-        Assert.Equal("test", cut.Find("#reverser-input").GetAttribute("value"));
-        Assert.Equal("tset", cut.Find("#reverser-result").GetAttribute("value"));
+        cut.Find("#reverser-input").GetAttribute("value").ShouldBe("test");
+        cut.Find("#reverser-result").GetAttribute("value").ShouldBe("tset");
     }
 
     [Fact]
@@ -40,7 +40,7 @@ public class MvuReverserTests : TestContext
         cut.Find("#reverser-input").Input("more");
 
         // Assert
-        Assert.Equal("more", cut.Find("#reverser-input").GetAttribute("value"));
-        Assert.Equal("erom", cut.Find("#reverser-result").GetAttribute("value"));
+        cut.Find("#reverser-input").GetAttribute("value").ShouldBe("more");
+        cut.Find("#reverser-result").GetAttribute("value").ShouldBe("erom");
     }
 }
