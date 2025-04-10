@@ -12,7 +12,7 @@ public class MvuFetchRandomErrorTests : TestContext
         var cut = RenderComponent<MvuFetchRandomError>();
 
         // Wait a bit for the async method to finish
-        await Task.Delay(10);
+        await Task.Delay(10, Xunit.TestContext.Current.CancellationToken);
 
         // Assert
         cut.Instance.State
