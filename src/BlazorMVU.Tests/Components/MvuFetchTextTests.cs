@@ -19,7 +19,7 @@ public class MvuFetchTextTests : TestContext
         var cut = RenderComponent<MvuFetchText>(parameters => parameters.Add(p => p.FetchDelay, 1));
 
         // Wait a bit for the async method to finish
-        await Task.Delay(10);
+        await Task.Delay(10, Xunit.TestContext.Current.CancellationToken);
 
         // Assert
         cut.Instance.State
