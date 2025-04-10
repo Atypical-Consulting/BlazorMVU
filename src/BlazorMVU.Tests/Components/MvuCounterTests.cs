@@ -11,7 +11,7 @@ public class MvuCounterTests : TestContext
         var cut = RenderComponent<MvuCounter>();
 
         // Assert
-        cut.Find("input").GetAttribute("value").Should().Be("0");
+        cut.Find("input").GetAttribute("value").ShouldBe("0");
     }
 
     [Fact]
@@ -24,7 +24,7 @@ public class MvuCounterTests : TestContext
         cut.Find("button.btn-primary:nth-of-type(2)").Click();
 
         // Assert
-        cut.Find("input").GetAttribute("value").Should().Be("1");
+        cut.Find("input").GetAttribute("value").ShouldBe("1");
     }
 
     [Fact]
@@ -37,7 +37,7 @@ public class MvuCounterTests : TestContext
         cut.Find("button.btn-primary:nth-of-type(1)").Click();
 
         // Assert
-        cut.Find("input").GetAttribute("value").Should().Be("-1");
+        cut.Find("input").GetAttribute("value").ShouldBe("-1");
     }
 
     [Fact]
@@ -52,6 +52,6 @@ public class MvuCounterTests : TestContext
         cut.Find("button.btn-primary:nth-of-type(1)").Click();
 
         // Assert
-        cut.Find("input").GetAttribute("value").Should().Be("1");
+        cut.Find("input").GetAttribute("value").ShouldBe("1");
     }
 }

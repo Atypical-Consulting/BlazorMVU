@@ -1,5 +1,3 @@
-using System;
-using System.Threading.Tasks;
 using BlazorMVU.Demo.Components;
 using BlazorMVU.Demo.Shared;
 
@@ -25,7 +23,7 @@ public class MvuFetchTextTests : TestContext
 
         // Assert
         cut.Instance.State
-            .Message.Should().Be("This is the fetched text.");
+            .Message.ShouldBe("This is the fetched text.");
     }
 
     [Fact]
@@ -36,7 +34,7 @@ public class MvuFetchTextTests : TestContext
 
         // Assert
         cut.Instance.State
-            .Message.Should().Be("Loading...");
+            .Message.ShouldBe("Loading...");
 
         return Task.CompletedTask;
     }
@@ -57,6 +55,6 @@ public class MvuFetchTextTests : TestContext
         
         // Assert
         cut.Instance.State
-            .Message.Should().Be("I was unable to load your book.");
+            .Message.ShouldBe("I was unable to load your book.");
     }
 }
