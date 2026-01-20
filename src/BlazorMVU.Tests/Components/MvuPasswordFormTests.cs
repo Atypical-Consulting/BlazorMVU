@@ -2,13 +2,13 @@ using BlazorMVU.Demo.Components;
 
 namespace BlazorMVU.Tests.Components;
 
-public class MvuPasswordFormTests : TestContext
+public class MvuPasswordFormTests : BunitContext
 {
     [Fact]
     public void MvuPasswordForm_InitialValuesAreEmpty()
     {
         // Arrange
-        var cut = RenderComponent<MvuPasswordForm>();
+        var cut = Render<MvuPasswordForm>();
 
         // Assert
         cut.Find("input[type='text']").GetAttribute("value").ShouldBe("");
@@ -20,7 +20,7 @@ public class MvuPasswordFormTests : TestContext
     public void MvuPasswordForm_PasswordMismatchShowsError()
     {
         // Arrange
-        var cut = RenderComponent<MvuPasswordForm>();
+        var cut = Render<MvuPasswordForm>();
 
         // Act
         cut.Find("input[type='password']").Input("password");
@@ -35,7 +35,7 @@ public class MvuPasswordFormTests : TestContext
     public void MvuPasswordForm_PasswordMatchClearsError()
     {
         // Arrange
-        var cut = RenderComponent<MvuPasswordForm>();
+        var cut = Render<MvuPasswordForm>();
 
         // Act
         cut.Find("input[type='password']").Input("password");

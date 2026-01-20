@@ -2,13 +2,13 @@ using BlazorMVU.Demo.Components;
 
 namespace BlazorMVU.Tests.Components;
 
-public class MvuReverserTests : TestContext
+public class MvuReverserTests : BunitContext
 {
     [Fact]
     public void MvuReverser_InitialValueIsEmpty()
     {
         // Arrange
-        var cut = RenderComponent<MvuReverser>();
+        var cut = Render<MvuReverser>();
 
         // Assert
         cut.Find("input").GetAttribute("value").ShouldBe("");
@@ -19,7 +19,7 @@ public class MvuReverserTests : TestContext
     public void MvuReverser_InputChangesUpdateState()
     {
         // Arrange
-        var cut = RenderComponent<MvuReverser>();
+        var cut = Render<MvuReverser>();
 
         // Act
         cut.Find("#reverser-input").Input("test");
@@ -33,7 +33,7 @@ public class MvuReverserTests : TestContext
     public void MvuReverser_MultipleInputChangesUpdateStateCorrectly()
     {
         // Arrange
-        var cut = RenderComponent<MvuReverser>();
+        var cut = Render<MvuReverser>();
 
         // Act
         cut.Find("#reverser-input").Input("test");

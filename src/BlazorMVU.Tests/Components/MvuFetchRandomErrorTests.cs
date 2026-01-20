@@ -1,15 +1,14 @@
 using BlazorMVU.Demo.Components;
-using BlazorMVU.Demo.Shared;
 
 namespace BlazorMVU.Tests.Components;
 
-public class MvuFetchRandomErrorTests : TestContext
+public class MvuFetchRandomErrorTests : BunitContext
 {
     [Fact]
     public async Task MvuFetchRandomError_Success()
     {
         // Arrange
-        var cut = RenderComponent<MvuFetchRandomError>();
+        var cut = Render<MvuFetchRandomError>();
 
         // Wait a bit for the async method to finish
         await Task.Delay(10, Xunit.TestContext.Current.CancellationToken);
@@ -23,7 +22,7 @@ public class MvuFetchRandomErrorTests : TestContext
     public Task MvuFetchRandomError_Loading()
     {
         // Arrange
-        var cut = RenderComponent<MvuFetchRandomError>();
+        var cut = Render<MvuFetchRandomError>();
 
         // Assert
         cut.Instance.State
