@@ -1,0 +1,71 @@
+@using BlazorMVU
+@inherits BlazorMVU.SimpleMvuComponent<MvuParentChild.Model, MvuParentChild.Msg>
+
+<div class="parent-child-demo">
+    <h4>Parent-Child Communication</h4>
+
+    <article>
+        <header>Parent State</header>
+        <p>Total received from children: <strong>@State.TotalFromChildren</strong></p>
+        <p>Last message from: <strong>@(State.LastChildSource ?? "None")</strong></p>
+
+        @if (State.History.Count > 0)
+        {
+            <details>
+                <summary>Message History (@State.History.Count)</summary>
+                <ul>
+                    @foreach (var entry in State.History.TakeLast(10))
+                    {
+                        <li>@entry</li>
+                    }
+                </ul>
+            </details>
+        }
+
+        <div role="group">
+            <button @onclick="@(() => Dispatch(new Msg.BroadcastToChildren(5)))">
+                Send 5 to All Children
+            </button>
+            <button class="secondary" @onclick="@(() => Dispatch(new Msg.ClearHistory()))">
+                Clear History
+            </button>
+        </div>
+    </article>
+
+    <div class="grid">
+        <MvuCounterChild
+            Label="Counter A"
+            InitialCount="0"
+            ExternalValue="@State.BroadcastValue"
+            OnCountChanged="@(value => Dispatch(new Msg.ChildCountChanged("A", value)))" />
+
+        <MvuCounterChild
+            Label="Counter B"
+            InitialCount="10"
+            ExternalValue="@State.BroadcastValue"
+            OnCountChanged="@(value => Dispatch(new Msg.ChildCountChanged("B", value)))" />
+
+        <MvuCounterChild
+            Label="Counter C"
+            InitialCount="100"
+            ExternalValue="@State.BroadcastValue"
+            OnCountChanged="@(value => Dispatch(new Msg.ChildCountChanged("C", value)))" />
+    </div>
+</div>
+
+<style>
+    .parent-child-demo {
+        padding: 1rem;
+    }
+    .parent-child-demo .grid {
+        margin-top: 1rem;
+    }
+    .counter-child {
+        text-align: center;
+    }
+    .counter-child input {
+        text-align: center;
+        max-width: 80px;
+        margin: 0 auto;
+    }
+</style>

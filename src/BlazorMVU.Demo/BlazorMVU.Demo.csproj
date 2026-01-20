@@ -15,4 +15,8 @@
     <PackageReference Include="PublishSPAforGitHubPages.Build" Version="3.0.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BlazorMVU.Core\BlazorMVU.Core.csproj" />
+  </ItemGroup>
+
 </Project>

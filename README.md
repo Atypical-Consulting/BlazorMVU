@@ -52,10 +52,40 @@ We hope that BlazorMvu will serve as a valuable tool for the Blazor community an
 
 ## 📌 Features
 
-* MVU pattern implementation for Blazor
-* Demo components showcasing the usage of the library
-* Unit tests using BUnit
-* ... open to Pull Requests
+### Core Features
+* **MVU Pattern Implementation** - Full Model-View-Update architecture for Blazor
+* **SimpleMvuComponent** - Lightweight base class for simple components
+* **MvuComponent** - Full-featured base class with advanced capabilities
+
+### Advanced Features
+* **Commands (Cmd<TMsg>)** - Declarative side effects handling
+  - `Cmd.OfTask` - Async operations that return messages
+  - `Cmd.OfMsg` - Immediate message dispatch
+  - `Cmd.Batch` - Combine multiple commands
+  - `Cmd.Delay` - Delayed message dispatch
+* **Subscriptions (Sub<TMsg>)** - External event listeners
+  - `Sub.Timer` - Interval-based updates
+  - `Sub.Timeout` - One-time delayed messages
+  - `Sub.Custom` - Custom subscription logic
+* **Middleware** - Dispatch pipeline interceptors
+  - Logging middleware
+  - Timing middleware
+  - Debounce/Throttle middleware
+  - Error handling middleware
+* **Time-Travel Debugging** - Navigate through state history
+* **State Persistence** - localStorage/sessionStorage integration
+* **MvuResult<T>** - Functional result type for error handling
+
+### Demo Components
+* Counter, Text Reverser, Password Form, Todo List
+* Fetch with error handling
+* Stopwatch with subscriptions
+* Shopping Cart with commands and async
+* Parent-Child communication patterns
+
+### Testing
+* Unit tests using BUnit and xUnit v3
+* Shouldly assertions
 
 ## Stats
 
@@ -73,32 +103,29 @@ dotnet build
 
 ## 📚 Usage
 
-To use the BlazorMvu library, inherit from the `MvuComponent<TModel, TMsg>` class in your Blazor component. Define your model and messages, and implement the Init and Update methods.
+### Basic Usage
+
+For simple components, inherit from `SimpleMvuComponent<TModel, TMsg>`:
 
 ```csharp
-<!-- Counter.razor -->
-@inherits MvuComponent<int, MvuCounter.Msg>
+@inherits BlazorMVU.SimpleMvuComponent<int, MvuCounter.Msg>
 
 <div class="grid">
-  <button class="btn btn-primary" @onclick="@(() => Dispatch(Msg.Decrement))">-</button>
+  <button @onclick="@(() => Dispatch(new Msg.Decrement()))">-</button>
   <input type="text" value="@State" disabled />
-  <button class="btn btn-primary" @onclick="@(() => Dispatch(Msg.Increment))">+</button>
+  <button @onclick="@(() => Dispatch(new Msg.Increment()))">+</button>
 </div>
 
 @code {
-  
-  // Messages
-  public enum Msg
+  // Messages using discriminated unions
+  public abstract record Msg
   {
-    Increment,
-    Decrement
+    public record Increment : Msg;
+    public record Decrement : Msg;
   }
 
-  // Initialize the model
-  protected override int Init()
-    => 0;
+  protected override int Init() => 0;
 
-  // Update the model based on the message
   protected override int Update(Msg msg, int model)
     => msg switch
     {
@@ -106,8 +133,104 @@ To use the BlazorMvu library, inherit from the `MvuComponent<TModel, TMsg>` clas
       Msg.Decrement => model - 1,
       _ => model
     };
-
 }
+```
+
+### Advanced Usage with Commands
+
+For components that need side effects, inherit from `MvuComponent<TModel, TMsg>`:
+
+```csharp
+@inherits BlazorMVU.MvuComponent<FetchExample.Model, FetchExample.Msg>
+
+@code {
+  public record Model(string? Data, bool IsLoading, string? Error);
+
+  public abstract record Msg
+  {
+    public record FetchData : Msg;
+    public record DataReceived(MvuResult<string> Result) : Msg;
+  }
+
+  // Return both model and command
+  protected override (Model, Cmd<Msg>) InitWithCmd()
+    => (new Model(null, true, null), Cmd.OfMsg<Msg>(new Msg.FetchData()));
+
+  protected override (Model, Cmd<Msg>) UpdateWithCmd(Msg msg, Model model)
+    => msg switch
+    {
+      Msg.FetchData => (
+        model with { IsLoading = true },
+        Cmd.OfTask<Msg>(async ct => {
+          var result = await FetchDataAsync(ct);
+          return new Msg.DataReceived(result);
+        })),
+
+      Msg.DataReceived received => (
+        received.Result.IsSuccess
+          ? model with { Data = received.Result.Value, IsLoading = false }
+          : model with { Error = received.Result.Error?.Message, IsLoading = false },
+        Cmd.None<Msg>()),
+
+      _ => (model, Cmd.None<Msg>())
+    };
+}
+```
+
+### Using Subscriptions
+
+Override the `Subscriptions` method to react to external events:
+
+```csharp
+protected override Sub<Msg> Subscriptions(Model model)
+{
+  if (model.IsRunning)
+  {
+    // Tick every 100ms while running
+    return Sub.Timer<Msg>(
+      TimeSpan.FromMilliseconds(100),
+      now => new Msg.Tick(now),
+      "timer-id");
+  }
+  return Sub.None<Msg>();
+}
+```
+
+### Using Middleware
+
+Add middleware in `OnInitialized`:
+
+```csharp
+protected override void OnInitialized()
+{
+  UseMiddleware(
+    Middleware.ConsoleLogger<Model, Msg>(),
+    Middleware.Timing<Model, Msg>((msg, elapsed) =>
+      Console.WriteLine($"{msg} took {elapsed.TotalMilliseconds}ms"))
+  );
+
+  base.OnInitialized();
+}
+```
+
+### Time-Travel Debugging
+
+Enable time-travel debugging via parameter:
+
+```razor
+<MyComponent EnableTimeTravel="true" TimeTravelMaxHistory="50" />
+```
+
+Then access the debugger:
+
+```csharp
+// Go back in history
+Debugger?.GoBack();
+RestoreFromDebugger();
+
+// Go forward
+Debugger?.GoForward();
+RestoreFromDebugger();
 ```
 
 ## 🚀 Running the Tests

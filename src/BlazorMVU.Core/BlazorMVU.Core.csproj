@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>12</LangVersion>
+
+    <!-- NuGet Package Properties -->
+    <PackageId>BlazorMVU</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Atypical Consulting</Authors>
+    <Company>Atypical Consulting SRL</Company>
+    <Description>A library implementing the Model-View-Update (MVU/Elm) pattern for Blazor with support for commands, subscriptions, middleware, and time-travel debugging.</Description>
+    <PackageTags>blazor;mvu;elm;functional;state-management</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/Atypical-Consulting/BlazorMVU</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="9.0.4" />
+    <PackageReference Include="Microsoft.JSInterop" Version="9.0.4" />
+  </ItemGroup>
+
+</Project>
