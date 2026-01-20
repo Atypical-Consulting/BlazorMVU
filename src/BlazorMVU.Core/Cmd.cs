@@ -29,7 +29,7 @@ public abstract record Cmd<TMsg>
     /// A command that executes an asynchronous task that may or may not produce a message.
     /// </summary>
     /// <param name="Task">The async task that optionally produces a message.</param>
-    public sealed record OfTaskOption(Func<CancellationToken, Task<TMsg?>> Task) : Cmd<TMsg> where TMsg : class;
+    public sealed record OfTaskOption(Func<CancellationToken, Task<TMsg?>> Task) : Cmd<TMsg>;
 
     /// <summary>
     /// A command that executes a fire-and-forget async operation.
@@ -58,9 +58,9 @@ public abstract record Cmd<TMsg>
     /// <summary>
     /// A command that delays execution of another command.
     /// </summary>
-    /// <param name="Delay">The delay duration.</param>
+    /// <param name="Duration">The delay duration.</param>
     /// <param name="Command">The command to execute after the delay.</param>
-    public sealed record Delay(TimeSpan Delay, Cmd<TMsg> Command) : Cmd<TMsg>;
+    public sealed record Delay(TimeSpan Duration, Cmd<TMsg> Command) : Cmd<TMsg>;
 
     private Cmd() { }
 }

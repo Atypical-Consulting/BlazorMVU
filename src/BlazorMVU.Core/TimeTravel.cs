@@ -30,6 +30,7 @@ public record StateHistoryEntry<TModel, TMsg>(
 /// <typeparam name="TModel">The model type.</typeparam>
 /// <typeparam name="TMsg">The message type.</typeparam>
 public class TimeTravelDebugger<TModel, TMsg>
+    where TModel : notnull
 {
     private readonly List<StateHistoryEntry<TModel, TMsg>> _history = [];
     private readonly int _maxHistorySize;

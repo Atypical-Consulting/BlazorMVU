@@ -174,9 +174,10 @@ public abstract class MvuComponent<TModel, TMsg> : ComponentBase, IAsyncDisposab
     /// </summary>
     protected void RestoreFromDebugger()
     {
-        if (_debugger?.CurrentState is { } state)
+        if (_debugger is { CurrentIndex: >= 0 } debugger
+            && debugger.CurrentIndex < debugger.History.Count)
         {
-            State = state;
+            State = debugger.History[debugger.CurrentIndex].State;
             StateHasChanged();
         }
     }
@@ -260,7 +261,7 @@ public abstract class MvuComponent<TModel, TMsg> : ComponentBase, IAsyncDisposab
                 {
                     try
                     {
-                        await Task.Delay(delay.Delay, _cts.Token);
+                        await Task.Delay(delay.Duration, _cts.Token);
                         await ExecuteCommandAsync(delay.Command);
                     }
                     catch (OperationCanceledException)

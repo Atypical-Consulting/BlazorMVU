@@ -140,7 +140,7 @@ public static class Middleware
         Func<TMsg, bool>? shouldThrottle = null)
     {
         DateTime lastDispatch = DateTime.MinValue;
-        readonly object lockObj = new();
+        object lockObj = new();
 
         return async (context, next) =>
         {

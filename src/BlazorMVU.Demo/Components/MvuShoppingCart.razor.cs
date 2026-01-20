@@ -87,7 +87,7 @@ public partial class MvuShoppingCart
         // Only auto-save if cart has items and not in the middle of an operation
         if (model.CartItems.Count > 0 && !model.IsLoading && !model.IsCheckingOut)
         {
-            return Sub.Every(TimeSpan.FromSeconds(30), new Msg.AutoSave(), "autosave");
+            return Sub.Every<Msg>(TimeSpan.FromSeconds(30), new Msg.AutoSave(), "autosave");
         }
         return Sub.None<Msg>();
     }
