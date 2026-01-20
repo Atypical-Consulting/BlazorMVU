@@ -1,0 +1,75 @@
+@using BlazorMVU
+@inherits BlazorMVU.MvuComponent<MvuStopwatch.Model, MvuStopwatch.Msg>
+
+<article class="stopwatch">
+    <header>Stopwatch with Subscriptions</header>
+
+    <div class="display">
+        <span class="time">@State.Elapsed.ToString(@"mm\:ss\.ff")</span>
+    </div>
+
+    <div class="laps" style="max-height: 150px; overflow-y: auto;">
+        @if (State.Laps.Count > 0)
+        {
+            <table>
+                <thead>
+                    <tr>
+                        <th>Lap</th>
+                        <th>Time</th>
+                        <th>Split</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (var i = State.Laps.Count - 1; i >= 0; i--)
+                    {
+                        var lap = State.Laps[i];
+                        <tr>
+                            <td>@(i + 1)</td>
+                            <td>@lap.LapTime.ToString(@"mm\:ss\.ff")</td>
+                            <td>@lap.SplitTime.ToString(@"mm\:ss\.ff")</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+
+    <footer>
+        <div role="group">
+            @if (State.IsRunning)
+            {
+                <button class="secondary" @onclick="@(() => Dispatch(new Msg.Stop()))">Stop</button>
+                <button class="outline" @onclick="@(() => Dispatch(new Msg.Lap()))">Lap</button>
+            }
+            else
+            {
+                <button @onclick="@(() => Dispatch(new Msg.Start()))">
+                    @(State.Elapsed > TimeSpan.Zero ? "Resume" : "Start")
+                </button>
+                @if (State.Elapsed > TimeSpan.Zero)
+                {
+                    <button class="outline secondary" @onclick="@(() => Dispatch(new Msg.Reset()))">Reset</button>
+                }
+            }
+        </div>
+    </footer>
+</article>
+
+<style>
+    .stopwatch {
+        text-align: center;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    .stopwatch .display {
+        padding: 2rem;
+    }
+    .stopwatch .time {
+        font-size: 3rem;
+        font-family: monospace;
+        font-weight: bold;
+    }
+    .stopwatch table {
+        font-size: 0.9rem;
+    }
+</style>

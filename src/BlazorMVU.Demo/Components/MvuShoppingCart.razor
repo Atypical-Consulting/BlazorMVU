@@ -1,0 +1,106 @@
+@inherits BlazorMVU.MvuComponent<MvuShoppingCart.Model, MvuShoppingCart.Msg>
+
+<div class="shopping-cart">
+    <h4>Shopping Cart</h4>
+
+    @if (State.IsLoading)
+    {
+        <p aria-busy="true">Loading products...</p>
+    }
+    else if (State.Error is not null)
+    {
+        <article class="error">
+            <p>@State.Error</p>
+            <button @onclick="@(() => Dispatch(new Msg.LoadProducts()))">Retry</button>
+        </article>
+    }
+    else
+    {
+        <div class="grid">
+            <div>
+                <h5>Products</h5>
+                @foreach (var product in State.Products)
+                {
+                    <article>
+                        <header>@product.Name</header>
+                        <p>@product.Price.ToString("C")</p>
+                        <footer>
+                            <button class="outline" @onclick="@(() => Dispatch(new Msg.AddToCart(product)))">
+                                Add to Cart
+                            </button>
+                        </footer>
+                    </article>
+                }
+            </div>
+
+            <div>
+                <h5>Your Cart (@State.CartItems.Count items)</h5>
+                @if (State.CartItems.Count == 0)
+                {
+                    <p>Your cart is empty</p>
+                }
+                else
+                {
+                    @foreach (var item in State.CartItems)
+                    {
+                        <div class="grid cart-item">
+                            <span>@item.Product.Name x @item.Quantity</span>
+                            <span>@((item.Product.Price * item.Quantity).ToString("C"))</span>
+                            <div role="group">
+                                <button class="outline secondary" @onclick="@(() => Dispatch(new Msg.DecrementQuantity(item.Product.Id)))">-</button>
+                                <button class="outline secondary" @onclick="@(() => Dispatch(new Msg.IncrementQuantity(item.Product.Id)))">+</button>
+                                <button class="outline secondary" @onclick="@(() => Dispatch(new Msg.RemoveFromCart(item.Product.Id)))">Remove</button>
+                            </div>
+                        </div>
+                    }
+
+                    <hr />
+                    <div class="grid">
+                        <strong>Total:</strong>
+                        <strong>@State.Total.ToString("C")</strong>
+                    </div>
+
+                    @if (State.AppliedCoupon is not null)
+                    {
+                        <p class="success">Coupon "@State.AppliedCoupon" applied! @State.Discount.ToString("C") off</p>
+                    }
+
+                    <div class="grid">
+                        <input type="text" placeholder="Coupon code"
+                               value="@State.CouponCode"
+                               @oninput="@(e => Dispatch(new Msg.UpdateCouponCode(e.Value?.ToString() ?? "")))" />
+                        <button @onclick="@(() => Dispatch(new Msg.ApplyCoupon(State.CouponCode)))"
+                                disabled="@State.IsApplyingCoupon">
+                            @(State.IsApplyingCoupon ? "Applying..." : "Apply")
+                        </button>
+                    </div>
+
+                    <button class="contrast"
+                            @onclick="@(() => Dispatch(new Msg.Checkout()))"
+                            disabled="@State.IsCheckingOut">
+                        @(State.IsCheckingOut ? "Processing..." : "Checkout")
+                    </button>
+                }
+            </div>
+        </div>
+
+        @if (State.LastSaved is not null)
+        {
+            <small>Last saved: @State.LastSaved.Value.ToString("HH:mm:ss")</small>
+        }
+    }
+</div>
+
+<style>
+    .cart-item {
+        align-items: center;
+        margin-bottom: 0.5rem;
+    }
+    .error {
+        background-color: #ffebee;
+        border-left: 4px solid #f44336;
+    }
+    .success {
+        color: #4caf50;
+    }
+</style>

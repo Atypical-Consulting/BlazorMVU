@@ -2,13 +2,13 @@
 @using System.Collections.Immutable
 
 <hgroup>
-  <h1>Blazor ❤️ MVU</h1>
+  <h1>Blazor MVU</h1>
   <h2>A collection of MVU examples inspired by Elm architecture</h2>
 </hgroup>
 
 <blockquote>
-  "BlazorMvu is a library that implements the Model-View-Update (MVU) pattern for Blazor. 
-     It provides a structured way to organize your Blazor components and manage their state, 
+  "BlazorMvu is a library that implements the Model-View-Update (MVU) pattern for Blazor.
+     It provides a structured way to organize your Blazor components and manage their state,
      making your code more understandable and easier to maintain."
   <footer>
     <cite>- Philippe MATRAY</cite>
@@ -16,7 +16,7 @@
 </blockquote>
 
 <article>
-  <h2>Examples</h2>
+  <h2>Basic Examples</h2>
   <details open>
     <summary>A basic counter</summary>
     <MvuCounter/>
@@ -48,5 +48,31 @@
       @context
     </MvuFetchText>
     Code: <a href="@($"{CodeUrl}MvuFetchText.razor")" target="_blank">MvuFetchText.razor</a>
+  </details>
+</article>
+
+<article>
+  <h2>Advanced Examples</h2>
+  <p>These examples demonstrate advanced MVU features including commands, subscriptions, and component composition.</p>
+
+  <details>
+    <summary>Stopwatch with Subscriptions</summary>
+    <p>Demonstrates MVU subscriptions for timer-based updates.</p>
+    <MvuStopwatch/>
+    Code: <a href="@($"{CodeUrl}MvuStopwatch.razor")" target="_blank">MvuStopwatch.razor</a>
+  </details>
+
+  <details>
+    <summary>Parent-Child Communication</summary>
+    <p>Shows how to compose MVU components with bidirectional communication.</p>
+    <MvuParentChild/>
+    Code: <a href="@($"{CodeUrl}MvuParentChild.razor")" target="_blank">MvuParentChild.razor</a>
+  </details>
+
+  <details>
+    <summary>Shopping Cart (Commands & Async)</summary>
+    <p>A complex example demonstrating commands for side effects, async operations, and auto-save subscriptions.</p>
+    <MvuShoppingCart/>
+    Code: <a href="@($"{CodeUrl}MvuShoppingCart.razor")" target="_blank">MvuShoppingCart.razor</a>
   </details>
 </article>

@@ -1,0 +1,16 @@
+@using BlazorMVU
+@inherits BlazorMVU.SimpleMvuComponent<MvuCounterChild.Model, MvuCounterChild.Msg>
+
+<article class="counter-child">
+    <header>@Label</header>
+    <div class="grid">
+        <button class="outline secondary" @onclick="@(() => Dispatch(new Msg.Decrement()))">-</button>
+        <input type="number" value="@State.Count" readonly />
+        <button class="outline" @onclick="@(() => Dispatch(new Msg.Increment()))">+</button>
+    </div>
+    <footer>
+        <button class="secondary" @onclick="@(() => OnCountChanged.InvokeAsync(State.Count))">
+            Send to Parent
+        </button>
+    </footer>
+</article>
