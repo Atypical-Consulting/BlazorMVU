@@ -10,13 +10,13 @@ public class TestMvuFetchText : MvuFetchText
         => base.Dispatch(msg);
 }
 
-public class MvuFetchTextTests : TestContext
+public class MvuFetchTextTests : BunitContext
 {
     [Fact]
     public async Task MvuFetchText_Success()
     {
         // Arrange
-        var cut = RenderComponent<MvuFetchText>(parameters => parameters.Add(p => p.FetchDelay, 1));
+        var cut = Render<MvuFetchText>(parameters => parameters.Add(p => p.FetchDelay, 1));
 
         // Wait a bit for the async method to finish
         await Task.Delay(10, Xunit.TestContext.Current.CancellationToken);
@@ -30,7 +30,7 @@ public class MvuFetchTextTests : TestContext
     public Task MvuFetchText_Loading()
     {
         // Arrange
-        var cut = RenderComponent<MvuFetchText>(parameters => parameters.Add(p => p.FetchDelay, int.MaxValue));
+        var cut = Render<MvuFetchText>(parameters => parameters.Add(p => p.FetchDelay, int.MaxValue));
 
         // Assert
         cut.Instance.State
@@ -43,7 +43,7 @@ public class MvuFetchTextTests : TestContext
     public async Task MvuFetchText_Failure()
     {
         // Arrange
-        var cut = RenderComponent<TestMvuFetchText>(parameters => parameters.Add(p => p.FetchDelay, -1));
+        var cut = Render<TestMvuFetchText>(parameters => parameters.Add(p => p.FetchDelay, -1));
 
         // Act
         await cut.InvokeAsync(() =>
