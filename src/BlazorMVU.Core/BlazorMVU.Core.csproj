@@ -22,7 +22,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="9.0.4" />
-    <PackageReference Include="Microsoft.JSInterop" Version="9.0.4" />
+    <PackageReference Include="Microsoft.JSInterop" Version="9.0.13" />
   </ItemGroup>
 
 </Project>
