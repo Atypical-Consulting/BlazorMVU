@@ -8,16 +8,27 @@ public abstract class MvuComponent<TModel, TMsg> : ComponentBase
 
     protected abstract TModel Init();
 
-    protected abstract TModel Update(TMsg msg, TModel model);
-
-    protected virtual void Dispatch(TMsg msg)
-    {
-        State = Update(msg, State);
-        StateHasChanged();
-    }
+    protected abstract (TModel, Cmd<TMsg>) Update(TMsg msg, TModel model);
 
     protected override void OnInitialized()
     {
         State = Init();
+    }
+
+    protected virtual void Dispatch(TMsg msg)
+    {
+        Console.WriteLine($"Dispatching {msg}");
+        
+        (State, Cmd<TMsg> cmd) = Update(msg, State);
+        ExecuteCmd(cmd);
+        StateHasChanged();
+    }
+
+    private void ExecuteCmd(Cmd<TMsg> cmd)
+    {
+        foreach (var effect in cmd.Effects)
+        {
+            effect(Dispatch);
+        }
     }
 }

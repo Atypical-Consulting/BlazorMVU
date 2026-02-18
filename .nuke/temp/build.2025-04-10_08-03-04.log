@@ -1,0 +1,34 @@
+V |                      | ArgumentsFromParametersFile.OnBuildCreated (150)
+V |                      | HandleReSharperSurrogateArguments.OnBuildCreated (150)
+V |                      | InjectParameterValues.OnBuildCreated (100)
+V |                      | HandleShellCompletion.OnBuildCreated (75)
+V |                      | GenerateBuildServerConfigurations.OnBuildCreated (50)
+V |                      | InvokeBuildServerConfigurationGeneration.OnBuildCreated (45)
+V |                      | UpdateNotification.OnBuildCreated (10)
+V |                      | UnsetVisualStudioEnvironmentVariables.OnBuildCreated (0)
+V |                      | HandleVisualStudioDebugging.OnBuildCreated (0)
+V |                      | EventInvoker.OnBuildCreated (-3.4028235E+38)
+V |                      | HandlePlanRequests.OnBuildInitialized (10)
+V |                      | HandleHelpRequests.OnBuildInitialized (5)
+V |                      | Telemetry.OnBuildInitialized (0)
+V |                      | Sending BuildStarted telemetry event ...
+V |                      |   build_components         = 
+V |                      |   build_type               = Project
+V |                      |   compile_time             = 2
+V |                      |   config_generators        = 
+V |                      |   host                     = Rider
+V |                      |   num_custom_components    = 0
+V |                      |   num_custom_extensions    = 0
+V |                      |   num_partitioned_targets  = 0
+V |                      |   num_secrets              = 0
+V |                      |   num_targets              = 5
+V |                      |   os_architecture          = Arm64
+V |                      |   os_platform              = OSX
+V |                      |   repo_branch              = <null>
+V |                      |   repo_commit              = 9df008
+V |                      |   repo_provider            = GitHub
+V |                      |   repo_url                 = 5ababb
+V |                      |   target_framework         = .NETCoreApp,Version=v9.0
+V |                      |   version_dotnet_sdk       = 9.0.202
+V |                      |   version_nuke_common      = 9.0.4
+V |                      |   version_nuke_global_tool = 9.0.4

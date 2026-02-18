@@ -1,0 +1,162 @@
+V |                      | ArgumentsFromParametersFile.OnBuildCreated (150)
+V |                      | HandleReSharperSurrogateArguments.OnBuildCreated (150)
+V |                      | InjectParameterValues.OnBuildCreated (100)
+V |                      | HandleShellCompletion.OnBuildCreated (75)
+V |                      | GenerateBuildServerConfigurations.OnBuildCreated (50)
+V |                      | InvokeBuildServerConfigurationGeneration.OnBuildCreated (45)
+V |                      | UpdateNotification.OnBuildCreated (10)
+V |                      | UnsetVisualStudioEnvironmentVariables.OnBuildCreated (0)
+V |                      | HandleVisualStudioDebugging.OnBuildCreated (0)
+V |                      | EventInvoker.OnBuildCreated (-3.4028235E+38)
+V |                      | HandlePlanRequests.OnBuildInitialized (10)
+V |                      | HandleHelpRequests.OnBuildInitialized (5)
+V |                      | Telemetry.OnBuildInitialized (0)
+V |                      | Sending BuildStarted telemetry event ...
+V |                      |   build_components         = 
+V |                      |   build_type               = Project
+V |                      |   compile_time             = 3
+V |                      |   config_generators        = 
+V |                      |   host                     = Rider
+V |                      |   num_custom_components    = 0
+V |                      |   num_custom_extensions    = 0
+V |                      |   num_partitioned_targets  = 0
+V |                      |   num_secrets              = 0
+V |                      |   num_targets              = 5
+V |                      |   os_architecture          = Arm64
+V |                      |   os_platform              = OSX
+V |                      |   repo_branch              = <null>
+V |                      |   repo_commit              = e2efeb
+V |                      |   repo_provider            = GitHub
+V |                      |   repo_url                 = 5ababb
+V |                      |   target_framework         = .NETCoreApp,Version=v9.0
+V |                      |   version_dotnet_sdk       = 9.0.202
+V |                      |   version_nuke_common      = 9.0.4
+V |                      |   version_nuke_global_tool = 9.0.4
+V |                      | InjectNonParameterValues.OnBuildInitialized (-100)
+I |                      | > /opt/homebrew/bin/dotnet /Users/phmatray/.nuget/packages/gitversion.tool/6.2.0/tools/net9.0/any/gitversion.dll /nocache
+V |                      | @ /Users/phmatray/Repositories/github-atyp/BlazorMVU
+V |                      | EventInvoker.OnBuildInitialized (-3.4028235E+38)
+V | Clean                | EventInvoker.OnTargetRunning (-3.4028235E+38)
+I | Clean                | Cleaning the output directory...
+I | Clean                | Deleting /Users/phmatray/Repositories/github-atyp/BlazorMVU/src/BlazorMVU.Demo/bin...
+I | Clean                | Deleting /Users/phmatray/Repositories/github-atyp/BlazorMVU/src/BlazorMVU.Tests/bin...
+I | Clean                | Deleting /Users/phmatray/Repositories/github-atyp/BlazorMVU/src/BlazorMVU.Demo/obj...
+I | Clean                | Deleting /Users/phmatray/Repositories/github-atyp/BlazorMVU/src/BlazorMVU.Tests/obj...
+V | Clean                | Telemetry.OnTargetSucceeded (0)
+V | Clean                | EventInvoker.OnTargetSucceeded (-3.4028235E+38)
+V | Restore              | EventInvoker.OnTargetRunning (-3.4028235E+38)
+I | Restore              | Restoring the solution...
+I | Restore              | > /opt/homebrew/bin/dotnet restore /Users/phmatray/Repositories/github-atyp/BlazorMVU/BlazorMVU.sln --verbosity normal
+V | Restore              | @ /Users/phmatray/Repositories/github-atyp/BlazorMVU
+D | Restore              | Build started 10/04/2025 08:09:39.
+D | Restore              |      1>Project "/Users/phmatray/Repositories/github-atyp/BlazorMVU/BlazorMVU.sln" on node 1 (Restore target(s)).
+D | Restore              |      1>ValidateSolutionConfiguration:
+D | Restore              |          Building solution configuration "Debug|Any CPU".
+D | Restore              |        ValidateProjects:
+D | Restore              |          The project "_build" is not selected for building in solution configuration "Debug|Any CPU".
+D | Restore              |        _GetAllRestoreProjectPathItems:
+D | Restore              |          Determining projects to restore...
+D | Restore              |        Restore:
+D | Restore              |          X.509 certificate chain validation will use the fallback certificate bundle at '/usr/local/share/dotnet/sdk/9.0.202/trustedroots/codesignctl.pem'.
+D | Restore              |          X.509 certificate chain validation will use the fallback certificate bundle at '/usr/local/share/dotnet/sdk/9.0.202/trustedroots/timestampctl.pem'.
+D | Restore              |          Restoring packages for /Users/phmatray/Repositories/github-atyp/BlazorMVU/src/BlazorMVU.Demo/BlazorMVU.Demo.csproj...
+D | Restore              |          Restoring packages for /Users/phmatray/Repositories/github-atyp/BlazorMVU/src/BlazorMVU.Tests/BlazorMVU.Tests.csproj...
+D | Restore              |            GET https://api.nuget.org/v3/vulnerabilities/index.json
+D | Restore              |            OK https://api.nuget.org/v3/vulnerabilities/index.json 4535ms
+D | Restore              |            GET https://api.nuget.org/v3-vulnerabilities/2025.03.12.23.21.10/vulnerability.base.json
+D | Restore              |            GET https://api.nuget.org/v3-vulnerabilities/2025.03.12.23.21.10/2025.03.20.11.21.43/vulnerability.update.json
+D | Restore              |            OK https://api.nuget.org/v3-vulnerabilities/2025.03.12.23.21.10/vulnerability.base.json 66ms
+D | Restore              |            OK https://api.nuget.org/v3-vulnerabilities/2025.03.12.23.21.10/2025.03.20.11.21.43/vulnerability.update.json 99ms
+D | Restore              |          Generating MSBuild file /Users/phmatray/Repositories/github-atyp/BlazorMVU/src/BlazorMVU.Demo/obj/BlazorMVU.Demo.csproj.nuget.g.props.
+D | Restore              |          Generating MSBuild file /Users/phmatray/Repositories/github-atyp/BlazorMVU/src/BlazorMVU.Tests/obj/BlazorMVU.Tests.csproj.nuget.g.props.
+D | Restore              |          Generating MSBuild file /Users/phmatray/Repositories/github-atyp/BlazorMVU/src/BlazorMVU.Demo/obj/BlazorMVU.Demo.csproj.nuget.g.targets.
+D | Restore              |          Generating MSBuild file /Users/phmatray/Repositories/github-atyp/BlazorMVU/src/BlazorMVU.Tests/obj/BlazorMVU.Tests.csproj.nuget.g.targets.
+D | Restore              |          Writing assets file to disk. Path: /Users/phmatray/Repositories/github-atyp/BlazorMVU/src/BlazorMVU.Demo/obj/project.assets.json
+D | Restore              |          Writing assets file to disk. Path: /Users/phmatray/Repositories/github-atyp/BlazorMVU/src/BlazorMVU.Tests/obj/project.assets.json
+D | Restore              |          Restored /Users/phmatray/Repositories/github-atyp/BlazorMVU/src/BlazorMVU.Demo/BlazorMVU.Demo.csproj (in 4,81 sec).
+D | Restore              |          Restored /Users/phmatray/Repositories/github-atyp/BlazorMVU/src/BlazorMVU.Tests/BlazorMVU.Tests.csproj (in 4,81 sec).
+D | Restore              |          
+D | Restore              |          NuGet Config files used:
+D | Restore              |              /Users/phmatray/.nuget/NuGet/NuGet.Config
+D | Restore              |              /Users/phmatray/.nuget/NuGet/config/Godot.Offline.Config
+D | Restore              |          
+D | Restore              |          Feeds used:
+D | Restore              |              https://api.nuget.org/v3/index.json
+D | Restore              |              /usr/local/share/dotnet/library-packs
+D | Restore              |      1>Done Building Project "/Users/phmatray/Repositories/github-atyp/BlazorMVU/BlazorMVU.sln" (Restore target(s)).
+D | Restore              | 
+D | Restore              | Build succeeded.
+D | Restore              |     0 Warning(s)
+D | Restore              |     0 Error(s)
+D | Restore              | 
+D | Restore              | Time Elapsed 00:00:05.28
+V | Restore              | Telemetry.OnTargetSucceeded (0)
+V | Restore              | Sending TargetSucceeded telemetry event ...
+V | Restore              |   build_components         = 
+V | Restore              |   build_type               = Project
+V | Restore              |   compile_time             = 21
+V | Restore              |   config_generators        = 
+V | Restore              |   host                     = Rider
+V | Restore              |   num_custom_components    = 0
+V | Restore              |   num_custom_extensions    = 0
+V | Restore              |   num_partitioned_targets  = 0
+V | Restore              |   num_secrets              = 0
+V | Restore              |   num_targets              = 5
+V | Restore              |   os_architecture          = Arm64
+V | Restore              |   os_platform              = OSX
+V | Restore              |   repo_branch              = <null>
+V | Restore              |   repo_commit              = e2efeb
+V | Restore              |   repo_provider            = GitHub
+V | Restore              |   repo_url                 = 5ababb
+V | Restore              |   target_current_partition = 1
+V | Restore              |   target_duration          = 5
+V | Restore              |   target_framework         = .NETCoreApp,Version=v9.0
+V | Restore              |   target_name              = Restore
+V | Restore              |   target_total_partitions  = 1
+V | Restore              |   version_dotnet_sdk       = 9.0.202
+V | Restore              |   version_nuke_common      = 9.0.4
+V | Restore              |   version_nuke_global_tool = 9.0.4
+V | Restore              | EventInvoker.OnTargetSucceeded (-3.4028235E+38)
+V | Compile              | EventInvoker.OnTargetRunning (-3.4028235E+38)
+I | Compile              | Compiling the solution with version 0.0.1-bye-bye-fluent-assertions.1...
+I | Compile              | > /opt/homebrew/bin/dotnet build /Users/phmatray/Repositories/github-atyp/BlazorMVU/BlazorMVU.sln --configuration Debug --property:AssemblyVersion=0.0.1.0 --property:FileVersion=0.0.1.0 --property:InformationalVersion=0.0.1-bye-bye-fluent-assertions.1+62.Branch.features-bye-bye-fluent-assertions.Sha.d012393afd49f6acd89bca11aea1ff1133528253 --no-restore
+V | Compile              | @ /Users/phmatray/Repositories/github-atyp/BlazorMVU
+D | Compile              |   BlazorMVU.Demo -> /Users/phmatray/Repositories/github-atyp/BlazorMVU/src/BlazorMVU.Demo/bin/Debug/net9.0/BlazorMVU.Demo.dll
+D | Compile              |   BlazorMVU.Demo (Blazor output) -> /Users/phmatray/Repositories/github-atyp/BlazorMVU/src/BlazorMVU.Demo/bin/Debug/net9.0/wwwroot
+D | Compile              |   BlazorMVU.Tests -> /Users/phmatray/Repositories/github-atyp/BlazorMVU/src/BlazorMVU.Tests/bin/Debug/net9.0/BlazorMVU.Tests.dll
+D | Compile              | 
+D | Compile              | Build succeeded.
+D | Compile              |     0 Warning(s)
+D | Compile              |     0 Error(s)
+D | Compile              | 
+D | Compile              | Time Elapsed 00:00:02.44
+V | Compile              | Telemetry.OnTargetSucceeded (0)
+V | Compile              | Sending TargetSucceeded telemetry event ...
+V | Compile              |   build_components         = 
+V | Compile              |   build_type               = Project
+V | Compile              |   compile_time             = 24
+V | Compile              |   config_generators        = 
+V | Compile              |   host                     = Rider
+V | Compile              |   num_custom_components    = 0
+V | Compile              |   num_custom_extensions    = 0
+V | Compile              |   num_partitioned_targets  = 0
+V | Compile              |   num_secrets              = 0
+V | Compile              |   num_targets              = 5
+V | Compile              |   os_architecture          = Arm64
+V | Compile              |   os_platform              = OSX
+V | Compile              |   repo_branch              = <null>
+V | Compile              |   repo_commit              = e2efeb
+V | Compile              |   repo_provider            = GitHub
+V | Compile              |   repo_url                 = 5ababb
+V | Compile              |   target_current_partition = 1
+V | Compile              |   target_duration          = 3
+V | Compile              |   target_framework         = .NETCoreApp,Version=v9.0
+V | Compile              |   target_name              = Compile
+V | Compile              |   target_total_partitions  = 1
+V | Compile              |   version_dotnet_sdk       = 9.0.202
+V | Compile              |   version_nuke_common      = 9.0.4
+V | Compile              |   version_nuke_global_tool = 9.0.4
+V | Compile              | EventInvoker.OnTargetSucceeded (-3.4028235E+38)
+V |                      | UpdateNotification.OnBuildFinished (10)
+V |                      | SerializeBuildServerState.OnBuildFinished (0)
+V |                      | EventInvoker.OnBuildFinished (-3.4028235E+38)

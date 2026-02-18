@@ -20,12 +20,12 @@
     => 0;
 
   // Update the model based on the message
-  protected override int Update(Msg msg, int model)
+  protected override (int, Cmd<Msg>) Update(Msg msg, int model)
     => msg switch
     {
-      Msg.Increment => model + 1,
-      Msg.Decrement => model - 1,
-      _ => model
+      Msg.Increment => (model + 1, new Cmd<Msg>()),
+      Msg.Decrement => (model - 1, new Cmd<Msg>()),
+      _ => (model, new Cmd<Msg>())
     };
 
 }

@@ -47,13 +47,13 @@
     => new(Todos, "");
 
   // Update the model based on the message
-  protected override Model Update(Msg msg, Model model)
+  protected override (Model, Cmd<Msg>) Update(Msg msg, Model model)
     => msg switch
     {
-      Msg.AddTodo addTodo => model with {Todos = model.Todos.Add(new Todo(addTodo.Description, false)), NewTodo = ""},
-      Msg.ToggleDone toggleDone => model with { Todos = model.Todos.Replace(toggleDone.Todo, toggleDone.Todo with { IsDone = !toggleDone.Todo.IsDone }) },
-      Msg.DeleteTodo deleteTodo => model with { Todos = model.Todos.Remove(deleteTodo.Todo) },
-      Msg.NewTodoChange newTodoChange => model with { NewTodo = newTodoChange.NewTodo },
+      Msg.AddTodo addTodo => (model with {Todos = model.Todos.Add(new Todo(addTodo.Description, false)), NewTodo = ""}, new Cmd<Msg>()),
+      Msg.ToggleDone toggleDone => (model with { Todos = model.Todos.Replace(toggleDone.Todo, toggleDone.Todo with { IsDone = !toggleDone.Todo.IsDone }) }, new Cmd<Msg>()),
+      Msg.DeleteTodo deleteTodo => (model with { Todos = model.Todos.Remove(deleteTodo.Todo) }, new Cmd<Msg>()),
+      Msg.NewTodoChange newTodoChange => (model with { NewTodo = newTodoChange.NewTodo }, new Cmd<Msg>()),
       _ => throw new ArgumentOutOfRangeException(nameof(msg))
     };
 

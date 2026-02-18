@@ -2,11 +2,11 @@ namespace BlazorMVU.Demo.Shared;
   
 public struct MvuResult<T>
 {
-    public T Value { get; }
+    public T? Value { get; }
     public Exception? Error { get; }
     public bool IsSuccess { get; }
 
-    private MvuResult(T value, Exception? error, bool isSuccess)
+    private MvuResult(T? value, Exception? error, bool isSuccess)
     {
         Value = value;
         Error = error;

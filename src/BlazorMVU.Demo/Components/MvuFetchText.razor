@@ -8,18 +8,20 @@
   public RenderFragment<string>? ChildContent { get; set; }
 
   // Model
+  // This is a union type, which is a discriminated union of types.
+  // https://spencerfarley.com/2021/03/26/unions-in-csharp
   public abstract record Model
   {
-    public record Failure : Model;
     public record Loading : Model;
     public record Success(string FullText) : Model;
+    public record Failure : Model;
     
     public string Message
       => this switch
       {
-        Failure => "I was unable to load your book.",
         Loading => "Loading...",
         Success success => success.FullText,
+        Failure => "I was unable to load your book.",
         _ => ""
       };
   }
@@ -33,33 +35,43 @@
   // Initialize the model
   protected override Model Init()
   {
-    FetchText(); // <-- We don't await this, so it's fire and forget
+    var cmd = FetchText();
     return new Model.Loading();
   }
 
   // Update the model based on the message
-  protected override Model Update(Msg msg, Model model)
+  protected override (Model, Cmd<Msg>) Update(Msg msg, Model model)
     => msg switch
     {
-      Msg.GotText gotText => gotText.Result.IsSuccess ? new Model.Success(gotText.Result.Value) : new Model.Failure(),
-      _ => throw new ArgumentOutOfRangeException(nameof(msg))
-      };
+      Msg.GotText gotText => gotText.Result.IsSuccess
+        ? (new Model.Success(gotText.Result.Value), new Cmd<Msg>())
+        : (new Model.Failure(), new Cmd<Msg>()),
+      _ => (model, new Cmd<Msg>())
+    };
 
   // Simulate fetching text and dispatch a message
-  private async Task FetchText()
+  private Cmd<Msg> FetchText()
   {
-    try
+    return new Cmd<Msg>
     {
-      await Task.Delay(1000);  // Simulate API call delay
-      const string fullText = "This is the fetched text."; // Simulate received data
-      var msg = new Msg.GotText(MvuResult<string>.Success(fullText));
-      Dispatch(msg);
-    }
-    catch (Exception? ex)
-    {
-      var msg = new Msg.GotText(MvuResult<string>.Failure(ex));
-      Dispatch(msg);
-    }
+      Effects = new List<Effect<Msg>>
+      {
+        async dispatch =>
+        {
+          try
+          {
+            await Task.Delay(1000);
+            const string fullText = "This is the fetched text.";
+            var msg = new Msg.GotText(MvuResult<string>.Success(fullText));
+            dispatch(msg);
+          }
+          catch (Exception? ex)
+          {
+            var msg = new Msg.GotText(MvuResult<string>.Failure(ex));
+            dispatch(msg);
+          }
+        }
+      }
+    };
   }
-
 }

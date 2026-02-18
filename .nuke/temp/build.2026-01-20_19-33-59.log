@@ -1,0 +1,191 @@
+V |                      | ArgumentsFromParametersFile.OnBuildCreated (150)
+V |                      | HandleReSharperSurrogateArguments.OnBuildCreated (150)
+V |                      | InjectParameterValues.OnBuildCreated (100)
+V |                      | HandleShellCompletion.OnBuildCreated (75)
+V |                      | GenerateBuildServerConfigurations.OnBuildCreated (50)
+V |                      | InvokeBuildServerConfigurationGeneration.OnBuildCreated (45)
+V |                      | UpdateNotification.OnBuildCreated (10)
+V |                      | UnsetVisualStudioEnvironmentVariables.OnBuildCreated (0)
+V |                      | HandleVisualStudioDebugging.OnBuildCreated (0)
+V |                      | EventInvoker.OnBuildCreated (-3.4028235E+38)
+V |                      | HandlePlanRequests.OnBuildInitialized (10)
+V |                      | HandleHelpRequests.OnBuildInitialized (5)
+V |                      | Telemetry.OnBuildInitialized (0)
+V |                      | Sending BuildStarted telemetry event ...
+V |                      |   build_components         = 
+V |                      |   build_type               = Project
+V |                      |   compile_time             = <null>
+V |                      |   config_generators        = 
+V |                      |   host                     = Rider
+V |                      |   num_custom_components    = 0
+V |                      |   num_custom_extensions    = 0
+V |                      |   num_partitioned_targets  = 0
+V |                      |   num_secrets              = 0
+V |                      |   num_targets              = 5
+V |                      |   os_architecture          = Arm64
+V |                      |   os_platform              = OSX
+V |                      |   repo_branch              = <null>
+V |                      |   repo_commit              = 289220
+V |                      |   repo_provider            = GitHub
+V |                      |   repo_url                 = 5ababb
+V |                      |   target_framework         = .NETCoreApp,Version=v10.0
+V |                      |   version_dotnet_sdk       = 10.0.100
+V |                      |   version_nuke_common      = 10.1.0
+V |                      |   version_nuke_global_tool = <null>
+V |                      | InjectNonParameterValues.OnBuildInitialized (-100)
+I |                      | > /usr/local/share/dotnet/dotnet /Users/phmatray/.nuget/packages/gitversion.tool/6.5.1/tools/net10.0/any/gitversion.dll /nocache
+V |                      | @ /Users/phmatray/Repositories/github-atyp/BlazorMVU
+V |                      | EventInvoker.OnBuildInitialized (-3.4028235E+38)
+V | Clean                | EventInvoker.OnTargetRunning (-3.4028235E+38)
+I | Clean                | Cleaning the output directory...
+I | Clean                | Deleting /Users/phmatray/Repositories/github-atyp/BlazorMVU/src/BlazorMVU.Demo/bin...
+I | Clean                | Deleting /Users/phmatray/Repositories/github-atyp/BlazorMVU/src/BlazorMVU.Tests/bin...
+I | Clean                | Deleting /Users/phmatray/Repositories/github-atyp/BlazorMVU/src/BlazorMVU.Demo/obj...
+I | Clean                | Deleting /Users/phmatray/Repositories/github-atyp/BlazorMVU/src/BlazorMVU.Tests/obj...
+V | Clean                | Telemetry.OnTargetSucceeded (0)
+V | Clean                | EventInvoker.OnTargetSucceeded (-3.4028235E+38)
+V | Restore              | EventInvoker.OnTargetRunning (-3.4028235E+38)
+I | Restore              | Restoring the solution...
+I | Restore              | > /usr/local/share/dotnet/dotnet restore /Users/phmatray/Repositories/github-atyp/BlazorMVU/BlazorMVU.sln --verbosity normal
+V | Restore              | @ /Users/phmatray/Repositories/github-atyp/BlazorMVU
+D | Restore              | Build started 20/01/2026 19:34:01.
+D | Restore              |      1>Project "/Users/phmatray/Repositories/github-atyp/BlazorMVU/BlazorMVU.sln" on node 1 (Restore target(s)).
+D | Restore              |      1>ValidateSolutionConfiguration:
+D | Restore              |          Building solution configuration "Debug|Any CPU".
+D | Restore              |        ValidateProjects:
+D | Restore              |          The project "_build" is not selected for building in solution configuration "Debug|Any CPU".
+D | Restore              |        _GetAllRestoreProjectPathItems:
+D | Restore              |          Determining projects to restore...
+D | Restore              |      1>Project "/Users/phmatray/Repositories/github-atyp/BlazorMVU/BlazorMVU.sln" (1) is building "/Users/phmatray/Repositories/github-atyp/BlazorMVU/src/BlazorMVU.Demo/BlazorMVU.Demo.csproj" (2:6) on node 1 (_GenerateProjectRestoreGraph target(s)).
+D | Restore              |      2>AddPrunePackageReferences:
+D | Restore              |          Loading prune package data from PrunePackageData folder
+D | Restore              |          Failed to load prune package data from PrunePackageData folder, loading from targeting packs instead
+D | Restore              |      1>Project "/Users/phmatray/Repositories/github-atyp/BlazorMVU/BlazorMVU.sln" (1) is building "/Users/phmatray/Repositories/github-atyp/BlazorMVU/src/BlazorMVU.Tests/BlazorMVU.Tests.csproj" (3:5) on node 2 (_GenerateProjectRestoreGraph target(s)).
+D | Restore              |      3>AddPrunePackageReferences:
+D | Restore              |          Loading prune package data from PrunePackageData folder
+D | Restore              |          Failed to load prune package data from PrunePackageData folder, loading from targeting packs instead
+D | Restore              |      2>AddPrunePackageReferences:
+D | Restore              |          Looking for targeting packs in /usr/local/share/dotnet/packs/Microsoft.NETCore.App.Ref
+D | Restore              |          Pack directories found: /usr/local/share/dotnet/packs/Microsoft.NETCore.App.Ref/10.0.0
+D | Restore              |      3>AddPrunePackageReferences:
+D | Restore              |          Looking for targeting packs in /usr/local/share/dotnet/packs/Microsoft.NETCore.App.Ref
+D | Restore              |          Pack directories found: /usr/local/share/dotnet/packs/Microsoft.NETCore.App.Ref/10.0.0
+D | Restore              |      2>AddPrunePackageReferences:
+D | Restore              |          Found package overrides file /usr/local/share/dotnet/packs/Microsoft.NETCore.App.Ref/10.0.0/data/PackageOverrides.txt
+D | Restore              |      3>AddPrunePackageReferences:
+D | Restore              |          Found package overrides file /usr/local/share/dotnet/packs/Microsoft.NETCore.App.Ref/10.0.0/data/PackageOverrides.txt
+D | Restore              |      2>Done Building Project "/Users/phmatray/Repositories/github-atyp/BlazorMVU/src/BlazorMVU.Demo/BlazorMVU.Demo.csproj" (_GenerateProjectRestoreGraph target(s)).
+D | Restore              |      3>Done Building Project "/Users/phmatray/Repositories/github-atyp/BlazorMVU/src/BlazorMVU.Tests/BlazorMVU.Tests.csproj" (_GenerateProjectRestoreGraph target(s)).
+D | Restore              |      1>Restore:
+D | Restore              |          X.509 certificate chain validation will use the fallback certificate bundle at '/usr/local/share/dotnet/sdk/10.0.100/trustedroots/codesignctl.pem'.
+D | Restore              |          X.509 certificate chain validation will use the fallback certificate bundle at '/usr/local/share/dotnet/sdk/10.0.100/trustedroots/timestampctl.pem'.
+D | Restore              |          Restoring packages for /Users/phmatray/Repositories/github-atyp/BlazorMVU/src/BlazorMVU.Tests/BlazorMVU.Tests.csproj...
+D | Restore              |          Restoring packages for /Users/phmatray/Repositories/github-atyp/BlazorMVU/src/BlazorMVU.Demo/BlazorMVU.Demo.csproj...
+D | Restore              |            CACHE https://api.nuget.org/v3/vulnerabilities/index.json
+D | Restore              |            CACHE https://api.nuget.org/v3-vulnerabilities/2026.01.17.05.30.40/vulnerability.base.json
+D | Restore              |            CACHE https://api.nuget.org/v3-vulnerabilities/2026.01.17.05.30.40/2026.01.20.11.30.49/vulnerability.update.json
+D | Restore              |          Generating MSBuild file /Users/phmatray/Repositories/github-atyp/BlazorMVU/src/BlazorMVU.Demo/obj/BlazorMVU.Demo.csproj.nuget.g.props.
+D | Restore              |          Generating MSBuild file /Users/phmatray/Repositories/github-atyp/BlazorMVU/src/BlazorMVU.Demo/obj/BlazorMVU.Demo.csproj.nuget.g.targets.
+D | Restore              |          Writing assets file to disk. Path: /Users/phmatray/Repositories/github-atyp/BlazorMVU/src/BlazorMVU.Demo/obj/project.assets.json
+D | Restore              |          Restored /Users/phmatray/Repositories/github-atyp/BlazorMVU/src/BlazorMVU.Demo/BlazorMVU.Demo.csproj (in 156 ms).
+D | Restore              |          Generating MSBuild file /Users/phmatray/Repositories/github-atyp/BlazorMVU/src/BlazorMVU.Tests/obj/BlazorMVU.Tests.csproj.nuget.g.props.
+D | Restore              |          Generating MSBuild file /Users/phmatray/Repositories/github-atyp/BlazorMVU/src/BlazorMVU.Tests/obj/BlazorMVU.Tests.csproj.nuget.g.targets.
+D | Restore              |          Writing assets file to disk. Path: /Users/phmatray/Repositories/github-atyp/BlazorMVU/src/BlazorMVU.Tests/obj/project.assets.json
+D | Restore              |          Restored /Users/phmatray/Repositories/github-atyp/BlazorMVU/src/BlazorMVU.Tests/BlazorMVU.Tests.csproj (in 180 ms).
+D | Restore              |          
+D | Restore              |          NuGet Config files used:
+D | Restore              |              /Users/phmatray/.nuget/NuGet/NuGet.Config
+D | Restore              |              /Users/phmatray/.nuget/NuGet/config/Godot.Offline.Config
+D | Restore              |          
+D | Restore              |          Feeds used:
+D | Restore              |              https://api.nuget.org/v3/index.json
+D | Restore              |              /usr/local/share/dotnet/library-packs
+D | Restore              |      1>Done Building Project "/Users/phmatray/Repositories/github-atyp/BlazorMVU/BlazorMVU.sln" (Restore target(s)).
+D | Restore              | 
+D | Restore              | Build succeeded.
+D | Restore              |     0 Warning(s)
+D | Restore              |     0 Error(s)
+D | Restore              | 
+D | Restore              | Time Elapsed 00:00:00.82
+V | Restore              | Telemetry.OnTargetSucceeded (0)
+V | Restore              | Sending TargetSucceeded telemetry event ...
+V | Restore              |   build_components         = 
+V | Restore              |   build_type               = Project
+V | Restore              |   compile_time             = <null>
+V | Restore              |   config_generators        = 
+V | Restore              |   host                     = Rider
+V | Restore              |   num_custom_components    = 0
+V | Restore              |   num_custom_extensions    = 0
+V | Restore              |   num_partitioned_targets  = 0
+V | Restore              |   num_secrets              = 0
+V | Restore              |   num_targets              = 5
+V | Restore              |   os_architecture          = Arm64
+V | Restore              |   os_platform              = OSX
+V | Restore              |   repo_branch              = <null>
+V | Restore              |   repo_commit              = 289220
+V | Restore              |   repo_provider            = GitHub
+V | Restore              |   repo_url                 = 5ababb
+V | Restore              |   target_current_partition = 1
+V | Restore              |   target_duration          = 1
+V | Restore              |   target_framework         = .NETCoreApp,Version=v10.0
+V | Restore              |   target_name              = Restore
+V | Restore              |   target_total_partitions  = 1
+V | Restore              |   version_dotnet_sdk       = 10.0.100
+V | Restore              |   version_nuke_common      = 10.1.0
+V | Restore              |   version_nuke_global_tool = <null>
+V | Restore              | EventInvoker.OnTargetSucceeded (-3.4028235E+38)
+V | Compile              | EventInvoker.OnTargetRunning (-3.4028235E+38)
+I | Compile              | Compiling the solution with version 0.0.1-claude-upgrade-dotnet10-nuget-UoRvA.1...
+I | Compile              | > /usr/local/share/dotnet/dotnet build /Users/phmatray/Repositories/github-atyp/BlazorMVU/BlazorMVU.sln --configuration Debug --property:AssemblyVersion=0.0.1.0 --property:FileVersion=0.0.1.0 --property:InformationalVersion=0.0.1-claude-upgrade-dotnet10-nuget-UoRvA.1+72.Branch.claude-upgrade-dotnet10-nuget-UoRvA.Sha.fc9c4d436980623267051329261e0f251ce7ac51 --no-restore
+V | Compile              | @ /Users/phmatray/Repositories/github-atyp/BlazorMVU
+D | Compile              |   Compiling native assets with /usr/local/share/dotnet/packs/Microsoft.NET.Runtime.Emscripten.3.1.56.Sdk.osx-arm64/10.0.2/Sdk/../tools/emscripten/emcc with -O0. This may take a while ...
+D | Compile              |   [1/4] corebindings.c -> corebindings.o [took 0,772s]
+D | Compile              |   [2/4] driver.c -> driver.o [took 0,772s]
+D | Compile              |   [4/4] runtime.c -> runtime.o [took 0,776s]
+D | Compile              |   [3/4] pinvoke.c -> pinvoke.o [took 0,772s]
+D | Compile              |   Linking for initial memory $(WasmInitialHeapSize)=33554432 bytes. Set this msbuild property to change the value.
+D | Compile              |   Linking with emcc with -O0. This may take a while ...
+D | Compile              |    /usr/local/share/dotnet/packs/Microsoft.NET.Runtime.Emscripten.3.1.56.Sdk.osx-arm64/10.0.2/tools/bin/clang --version
+D | Compile              |    /usr/local/share/dotnet/packs/Microsoft.NET.Runtime.Emscripten.3.1.56.Node.osx-arm64/10.0.2/tools/bin/node /usr/local/share/dotnet/packs/Microsoft.NET.Runtime.Emscripten.3.1.56.Sdk.osx-arm64/10.0.2/tools/emscripten/src/compiler.mjs /var/folders/hp/xyc7wtyj7ynf6d766tn59jc40000gn/T/tmplm6te_fw.json --symbols-only
+D | Compile              |    /usr/local/share/dotnet/packs/Microsoft.NET.Runtime.Emscripten.3.1.56.Sdk.osx-arm64/10.0.2/tools/bin/wasm-ld -o /Users/phmatray/Repositories/github-atyp/BlazorMVU/src/BlazorMVU.Demo/obj/Debug/net10.0/wasm/for-build/dotnet.native.wasm /Users/phmatray/Repositories/github-atyp/BlazorMVU/src/BlazorMVU.Demo/obj/Debug/net10.0/wasm/for-build/pinvoke.o /Users/phmatray/Repositories/github-atyp/BlazorMVU/src/BlazorMVU.Demo/obj/Debug/net10.0/wasm/for-build/driver.o /Users/phmatray/Repositories/github-atyp/BlazorMVU/src/BlazorMVU.Demo/obj/Debug/net10.0/wasm/for-build/corebindings.o /Users/phmatray/Repositories/github-atyp/BlazorMVU/src/BlazorMVU.Demo/obj/Debug/net10.0/wasm/for-build/runtime.o /usr/local/share/dotnet/packs/Microsoft.NETCore.App.Runtime.Mono.browser-wasm/10.0.2/runtimes/browser-wasm/native/libbrotlicommon.a /usr/local/share/dotnet/packs/Microsoft.NETCore.App.Runtime.Mono.browser-wasm/10.0.2/runtimes/browser-wasm/native/libbrotlidec.a /usr/local/share/dotnet/packs/Microsoft.NETCore.App.Runtime.Mono.browser-wasm/10.0.2/runtimes/browser-wasm/native/libbrotlienc.a /usr/local/share/dotnet/packs/Microsoft.NETCore.App.Runtime.Mono.browser-wasm/10.0.2/runtimes/browser-wasm/native/libicudata.a /usr/local/share/dotnet/packs/Microsoft.NETCore.App.Runtime.Mono.browser-wasm/10.0.2/runtimes/browser-wasm/native/libicui18n.a /usr/local/share/dotnet/packs/Microsoft.NETCore.App.Runtime.Mono.browser-wasm/10.0.2/runtimes/browser-wasm/native/libicuuc.a /usr/local/share/dotnet/packs/Microsoft.NETCore.App.Runtime.Mono.browser-wasm/10.0.2/runtimes/browser-wasm/native/libmono-component-debugger-static.a /usr/local/share/dotnet/packs/Microsoft.NETCore.App.Runtime.Mono.browser-wasm/10.0.2/runtimes/browser-wasm/native/libmono-component-diagnostics_tracing-stub-static.a /usr/local/share/dotnet/packs/Microsoft.NETCore.App.Runtime.Mono.browser-wasm/10.0.2/runtimes/browser-wasm/native/libmono-component-hot_reload-static.a /usr/local/share/dotnet/packs/Microsoft.NETCore.App.Runtime.Mono.browser-wasm/10.0.2/runtimes/browser-wasm/native/libmono-component-marshal-ilgen-stub-static.a /usr/local/share/dotnet/packs/Microsoft.NETCore.App.Runtime.Mono.browser-wasm/10.0.2/runtimes/browser-wasm/native/libmono-ee-interp.a /usr/local/share/dotnet/packs/Microsoft.NETCore.App.Runtime.Mono.browser-wasm/10.0.2/runtimes/browser-wasm/native/libmono-icall-table.a /usr/local/share/dotnet/packs/Microsoft.NETCore.App.Runtime.Mono.browser-wasm/10.0.2/runtimes/browser-wasm/native/libmono-profiler-aot.a /usr/local/share/dotnet/packs/Microsoft.NETCore.App.Runtime.Mono.browser-wasm/10.0.2/runtimes/browser-wasm/native/libmono-profiler-browser.a /usr/local/share/dotnet/packs/Microsoft.NETCore.App.Runtime.Mono.browser-wasm/10.0.2/runtimes/browser-wasm/native/libmono-profiler-log.a /usr/local/share/dotnet/packs/Microsoft.NETCore.App.Runtime.Mono.browser-wasm/10.0.2/runtimes/browser-wasm/native/libmono-wasm-eh-wasm.a /usr/local/share/dotnet/packs/Microsoft.NETCore.App.Runtime.Mono.browser-wasm/10.0.2/runtimes/browser-wasm/native/libmono-wasm-simd.a /usr/local/share/dotnet/packs/Microsoft.NETCore.App.Runtime.Mono.browser-wasm/10.0.2/runtimes/browser-wasm/native/libmonosgen-2.0.a /usr/local/share/dotnet/packs/Microsoft.NETCore.App.Runtime.Mono.browser-wasm/10.0.2/runtimes/browser-wasm/native/libSystem.Globalization.Native.a /usr/local/share/dotnet/packs/Microsoft.NETCore.App.Runtime.Mono.browser-wasm/10.0.2/runtimes/browser-wasm/native/libSystem.IO.Compression.Native.a /usr/local/share/dotnet/packs/Microsoft.NETCore.App.Runtime.Mono.browser-wasm/10.0.2/runtimes/browser-wasm/native/libSystem.Native.a /usr/local/share/dotnet/packs/Microsoft.NETCore.App.Runtime.Mono.browser-wasm/10.0.2/runtimes/browser-wasm/native/libz.a /usr/local/share/dotnet/packs/Microsoft.NETCore.App.Runtime.Mono.browser-wasm/10.0.2/runtimes/browser-wasm/native/wasm-bundled-timezones.a -L/usr/local/share/dotnet/packs/Microsoft.NET.Runtime.Emscripten.3.1.56.Cache.osx-arm64/10.0.2/tools/emscripten/cache/sysroot/lib/wasm32-emscripten -lGL-getprocaddr -lal -lhtml5 -lbulkmemory -lstubs-debug -lc-debug -ldlmalloc -lcompiler_rt-wasm-sjlj -lc++-except -lc++abi-debug-except -lunwind-except -lsockets -mllvm -combiner-global-alias-analysis=false -mllvm -wasm-enable-sjlj -mllvm -disable-lsr -mllvm -wasm-enable-eh -mllvm -exception-model=wasm /var/folders/hp/xyc7wtyj7ynf6d766tn59jc40000gn/T/tmpj4ve8unklibemscripten_js_symbols.so --export=free --export=htons --export=malloc --export=sbrk --export=memalign --export=posix_memalign --export=memset --export=ntohs --export=stackAlloc --export=stackRestore --export=stackSave --export=fmod --export=atan2 --export=fma --export=pow --export=fmodf --export=atan2f --export=fmaf --export=powf --export=asin --export=asinh --export=acos --export=acosh --export=atan --export=atanh --export=cbrt --export=cos --export=cosh --export=exp --export=log --export=log2 --export=log10 --export=sin --export=sinh --export=tan --export=tanh --export=asinf --export=asinhf --export=acosf --export=acoshf --export=atanf --export=atanhf --export=cbrtf --export=cosf --export=coshf --export=expf --export=logf --export=log2f --export=log10f --export=sinf --export=sinhf --export=tanf --export=tanhf --export=__cpp_exception --export=emscripten_stack_get_end --export=emscripten_stack_get_free --export=emscripten_stack_get_base --export=emscripten_stack_get_current --export=emscripten_stack_init --export=stackAlloc --export=__funcs_on_exit --export=__trap --export=__cpp_exception --export=__wasm_call_ctors --export=__get_exception_message --export=free --export=stackSave --export=stackRestore --export=__thrown_object_from_unwind_exception --export=__cxa_increment_exception_refcount --export=__cxa_decrement_exception_refcount --export-if-defined=__start_em_asm --export-if-defined=__stop_em_asm --export-if-defined=__start_em_lib_deps --export-if-defined=__stop_em_lib_deps --export-if-defined=__start_em_js --export-if-defined=__stop_em_js --export-if-defined=main --export-if-defined=__main_argc_argv --export-if-defined=fflush --export-table --growable-table -z stack-size=5242880 --max-memory=2147483648 --initial-memory=33554432 --no-entry --stack-first --table-base=1
+D | Compile              |    /usr/local/share/dotnet/packs/Microsoft.NET.Runtime.Emscripten.3.1.56.Sdk.osx-arm64/10.0.2/tools/bin/llvm-objcopy /Users/phmatray/Repositories/github-atyp/BlazorMVU/src/BlazorMVU.Demo/obj/Debug/net10.0/wasm/for-build/dotnet.native.wasm /Users/phmatray/Repositories/github-atyp/BlazorMVU/src/BlazorMVU.Demo/obj/Debug/net10.0/wasm/for-build/dotnet.native.wasm --remove-section=producers
+D | Compile              |    /usr/local/share/dotnet/packs/Microsoft.NET.Runtime.Emscripten.3.1.56.Node.osx-arm64/10.0.2/tools/bin/node /usr/local/share/dotnet/packs/Microsoft.NET.Runtime.Emscripten.3.1.56.Sdk.osx-arm64/10.0.2/tools/emscripten/src/compiler.mjs /var/folders/hp/xyc7wtyj7ynf6d766tn59jc40000gn/T/tmpvy6yguzy.json
+D | Compile              |   BlazorMVU.Demo -> /Users/phmatray/Repositories/github-atyp/BlazorMVU/src/BlazorMVU.Demo/bin/Debug/net10.0/BlazorMVU.Demo.dll
+D | Compile              |   BlazorMVU.Demo (Blazor output) -> /Users/phmatray/Repositories/github-atyp/BlazorMVU/src/BlazorMVU.Demo/bin/Debug/net10.0/wwwroot
+D | Compile              |   BlazorMVU.Tests -> /Users/phmatray/Repositories/github-atyp/BlazorMVU/src/BlazorMVU.Tests/bin/Debug/net10.0/BlazorMVU.Tests.dll
+D | Compile              | 
+D | Compile              | Build succeeded.
+D | Compile              |     0 Warning(s)
+D | Compile              |     0 Error(s)
+D | Compile              | 
+D | Compile              | Time Elapsed 00:00:05.55
+V | Compile              | Telemetry.OnTargetSucceeded (0)
+V | Compile              | Sending TargetSucceeded telemetry event ...
+V | Compile              |   build_components         = 
+V | Compile              |   build_type               = Project
+V | Compile              |   compile_time             = <null>
+V | Compile              |   config_generators        = 
+V | Compile              |   host                     = Rider
+V | Compile              |   num_custom_components    = 0
+V | Compile              |   num_custom_extensions    = 0
+V | Compile              |   num_partitioned_targets  = 0
+V | Compile              |   num_secrets              = 0
+V | Compile              |   num_targets              = 5
+V | Compile              |   os_architecture          = Arm64
+V | Compile              |   os_platform              = OSX
+V | Compile              |   repo_branch              = <null>
+V | Compile              |   repo_commit              = 289220
+V | Compile              |   repo_provider            = GitHub
+V | Compile              |   repo_url                 = 5ababb
+V | Compile              |   target_current_partition = 1
+V | Compile              |   target_duration          = 6
+V | Compile              |   target_framework         = .NETCoreApp,Version=v10.0
+V | Compile              |   target_name              = Compile
+V | Compile              |   target_total_partitions  = 1
+V | Compile              |   version_dotnet_sdk       = 10.0.100
+V | Compile              |   version_nuke_common      = 10.1.0
+V | Compile              |   version_nuke_global_tool = <null>
+V | Compile              | EventInvoker.OnTargetSucceeded (-3.4028235E+38)
+V |                      | UpdateNotification.OnBuildFinished (10)
+V |                      | SerializeBuildServerState.OnBuildFinished (0)
+V |                      | EventInvoker.OnBuildFinished (-3.4028235E+38)

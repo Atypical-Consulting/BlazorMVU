@@ -59,14 +59,14 @@
     => new(null, false, "");
 
   // Update the model based on the message
-  protected override Model Update(Msg msg, Model model)
+  protected override (Model, Cmd<Msg>) Update(Msg msg, Model model)
     => msg switch
     {
-      Msg.Fetch _ => model with { IsLoading = true, ErrorMessage = null },
-      Msg.ReceiveWeather weatherData => model with { WeatherData = weatherData.WeatherData, IsLoading = false},
-      Msg.Fail errorMessage => new Model(null, false, errorMessage.ErrorMessage),
-      _ => throw new ArgumentOutOfRangeException(nameof(msg))
-      };
+      Msg.Fetch _ => (model with { IsLoading = true, ErrorMessage = null }, new Cmd<Msg>()),
+      Msg.ReceiveWeather weatherData => (model with { WeatherData = weatherData.WeatherData, IsLoading = false}, new Cmd<Msg>()),
+      Msg.Fail errorMessage => (new Model(null, false, errorMessage.ErrorMessage), new Cmd<Msg>()),
+      _ => (model, new Cmd<Msg>())
+    };
 
   // Simulate fetching weather data and dispatch a message
   private async Task FetchWeather()

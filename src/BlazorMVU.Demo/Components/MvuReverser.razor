@@ -42,11 +42,11 @@
     => new("");
 
   // Update the model based on the message
-  protected override Model Update(Msg msg, Model model)
+  protected override (Model, Cmd<Msg>) Update(Msg msg, Model model)
     => msg switch
     {
-      Msg.Change change => new Model(change.Content),
-      _ => model
+      Msg.Change change => (new Model(change.Content), new Cmd<Msg>()),
+      _ => (model, new Cmd<Msg>())
     };
 
   // Handle the text change and dispatch a message
