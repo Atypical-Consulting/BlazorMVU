@@ -4,6 +4,7 @@ A Model-View-Update (MVU) pattern implementation for Blazor.
 
 [![Atypical-Consulting - BlazorMVU](https://img.shields.io/static/v1?label=Atypical-Consulting&message=BlazorMVU&color=blue&logo=github)](https://github.com/Atypical-Consulting/BlazorMVU "Go to GitHub repo")
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![.NET 10](https://img.shields.io/badge/.NET-10.0-purple?logo=dotnet)](https://dotnet.microsoft.com/en-us/download/dotnet/10.0)
 [![stars - BlazorMVU](https://img.shields.io/github/stars/Atypical-Consulting/BlazorMVU?style=social)](https://github.com/Atypical-Consulting/BlazorMVU)
 [![forks - BlazorMVU](https://img.shields.io/github/forks/Atypical-Consulting/BlazorMVU?style=social)](https://github.com/Atypical-Consulting/BlazorMVU)
 
@@ -20,6 +21,7 @@ A Model-View-Update (MVU) pattern implementation for Blazor.
 * [Introduction](#-introduction)
 * [Motivation](#-motivation)
 * [Features](#-features)
+* [Roadmap](#️-roadmap)
 * [Installation](#-installation)
 * [Usage](#-usage)
 * [Running the Tests](#-running-the-tests)
@@ -86,6 +88,18 @@ We hope that BlazorMvu will serve as a valuable tool for the Blazor community an
 ### Testing
 * Unit tests using BUnit and xUnit v3
 * Shouldly assertions
+
+## 🗺️ Roadmap
+
+BlazorMVU is actively maintained and targeting **.NET 10** (already running on SDK 10.0.x). Upcoming improvements:
+
+- **NuGet Package** — Publish `Atypical-Consulting.BlazorMVU` to NuGet.org for easy installation
+- **Source Generator** — Auto-generate boilerplate for `Update` dispatch tables
+- **DevTools Integration** — Browser extension for time-travel debugging visualization
+- **Blazor United** — Full support for Blazor Web App (SSR + interactive) hybrid rendering modes
+- **Performance Benchmarks** — BenchmarkDotNet suite comparing MVU vs standard Blazor component patterns
+
+> 💡 **Want to contribute?** Pick any roadmap item and open a PR. See [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines.
 
 ## Stats
 
