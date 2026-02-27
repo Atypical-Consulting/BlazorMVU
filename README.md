@@ -16,22 +16,26 @@ A Model-View-Update (MVU) pattern implementation for Blazor.
 
 ---
 
-## 📝 Table of Contents
+## Table of Contents
 
-* [Introduction](#-introduction)
-* [Motivation](#-motivation)
-* [Features](#-features)
-* [Roadmap](#️-roadmap)
-* [Installation](#-installation)
-* [Usage](#-usage)
-* [Running the Tests](#-running-the-tests)
-* [Contributing](#-contributing)
-* [License](#-license)
-* [Contact](#-contact)
-* [Acknowledgements](#-acknowledgements)
-* [Contributors](#-contributors)
+* [Introduction](#introduction)
+* [The Problem](#the-problem)
+* [The Solution](#the-solution)
+* [Features](#features)
+* [Tech Stack](#tech-stack)
+* [Roadmap](#roadmap)
+* [Installation](#installation)
+* [Usage](#usage)
+* [Architecture](#architecture)
+* [Project Structure](#project-structure)
+* [Running the Tests](#running-the-tests)
+* [Stats](#stats)
+* [Contributing](#contributing)
+* [License](#license)
+* [Contact](#contact)
+* [Acknowledgements](#acknowledgements)
 
-## 📖 Introduction
+## Introduction
 
 **BlazorMVU** is a library that implements the Model-View-Update (MVU) pattern for Blazor. It provides a structured way to organize your Blazor components and manage their state, making your code more understandable and easier to maintain.
 
@@ -40,19 +44,19 @@ A Model-View-Update (MVU) pattern implementation for Blazor.
 Demo: This Blazor project is deployed on [GitHub Pages](https://atypical-consulting.github.io/BlazorMVU/)
 
 
-## 💡 Motivation
+## The Problem
 
 The Elm architecture, or Model-View-Update (MVU), is a simple yet powerful pattern for structuring applications. It has gained popularity due to its simplicity, maintainability, and robustness. However, despite its advantages, the Elm architecture has not been widely adopted in the Blazor community.
 
-Blazor, as a framework, is flexible and allows for various design patterns to be implemented, including MVU. However, there hasn't been a straightforward way to implement the Elm architecture in Blazor - until now.
+Blazor, as a framework, is flexible and allows for various design patterns to be implemented, including MVU. However, there hasn't been a straightforward way to implement the Elm architecture in Blazor — leaving developers to manage complex component state with ad-hoc patterns that are hard to test and reason about.
 
-The motivation behind BlazorMvu is to bring the benefits of the Elm architecture to the Blazor community. By providing a library that implements the MVU pattern, we aim to make it easier for developers to structure their Blazor applications in a way that is easy to understand, maintain, and test.
+## The Solution
 
-We believe that the Elm architecture can greatly improve the developer experience when building Blazor applications. By reducing the complexity associated with state management and UI updates, developers can focus more on the business logic of their applications, leading to more robust and reliable software.
+**BlazorMVU** brings the benefits of the Elm architecture to the Blazor community. By providing a library that implements the MVU pattern, we make it easier for developers to structure their Blazor applications in a way that is easy to understand, maintain, and test.
 
-We hope that BlazorMvu will serve as a valuable tool for the Blazor community and contribute to the growth and maturity of Blazor as a framework for building web applications.
+By reducing the complexity associated with state management and UI updates, developers can focus more on the business logic of their applications, leading to more robust and reliable software.
 
-## 📌 Features
+## Features
 
 ### Core Features
 * **MVU Pattern Implementation** - Full Model-View-Update architecture for Blazor
@@ -89,7 +93,17 @@ We hope that BlazorMvu will serve as a valuable tool for the Blazor community an
 * Unit tests using BUnit and xUnit v3
 * Shouldly assertions
 
-## 🗺️ Roadmap
+## Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Runtime | .NET 9.0 (SDK 10.0) |
+| UI Framework | Blazor (Razor Components) |
+| Language | C# 12 |
+| Testing | xUnit v3 + bUnit + Shouldly |
+| Build | Nuke Build |
+
+## Roadmap
 
 BlazorMVU is actively maintained and targeting **.NET 10** (already running on SDK 10.0.x). Upcoming improvements:
 
@@ -99,13 +113,13 @@ BlazorMVU is actively maintained and targeting **.NET 10** (already running on S
 - **Blazor United** — Full support for Blazor Web App (SSR + interactive) hybrid rendering modes
 - **Performance Benchmarks** — BenchmarkDotNet suite comparing MVU vs standard Blazor component patterns
 
-> 💡 **Want to contribute?** Pick any roadmap item and open a PR. See [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines.
+> **Want to contribute?** Pick any roadmap item and open a PR. See [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines.
 
 ## Stats
 
 ![Alt](https://repobeats.axiom.co/api/embed/26eb4f8ccaa87d22a857066599225c9f542a4070.svg "Repobeats analytics image")
 
-## 📥 Installation
+## Installation
 
 Clone the repository and build the project:
 
@@ -115,7 +129,7 @@ cd BlazorMvu
 dotnet build
 ```
 
-## 📚 Usage
+## Usage
 
 ### Basic Usage
 
@@ -247,7 +261,65 @@ Debugger?.GoForward();
 RestoreFromDebugger();
 ```
 
-## 🚀 Running the Tests
+## Architecture
+
+The MVU (Model-View-Update) pattern creates a unidirectional data flow:
+
+```
+                    ┌─────────────────────────────────────┐
+                    │                                     │
+                    ▼                                     │
+              ┌───────────┐                               │
+              │   Model    │  (immutable state)            │
+              └─────┬─────┘                               │
+                    │                                     │
+                    ▼                                     │
+              ┌───────────┐                               │
+              │   View     │  (Blazor Razor component)     │
+              └─────┬─────┘                               │
+                    │ user interaction                     │
+                    ▼                                     │
+              ┌───────────┐                               │
+              │  Message   │  (discriminated union)        │
+              └─────┬─────┘                               │
+                    │                                     │
+                    ▼                                     │
+              ┌───────────┐     ┌───────────┐             │
+              │  Update    │────▶│    Cmd     │─── side ───┘
+              │ (pure fn)  │     │ (effects)  │   effects
+              └───────────┘     └───────────┘  return Msg
+```
+
+- **Model** -- An immutable record representing component state
+- **View** -- A Blazor Razor component that renders the model
+- **Message** -- A discriminated union (abstract record) describing what happened
+- **Update** -- A pure function: `(Msg, Model) -> (Model, Cmd<Msg>)`
+- **Cmd** -- Declarative side effects (async, delay, batch) that produce new messages
+
+### Project Structure
+
+```
+BlazorMVU/
+├── src/
+│   ├── BlazorMVU.Core/          # Library: base components, commands, subscriptions
+│   │   ├── Cmd.cs               # Command types (OfTask, OfMsg, Batch, Delay)
+│   │   ├── Sub.cs               # Subscription types (Timer, Timeout, Custom)
+│   │   ├── Middleware.cs         # Dispatch pipeline interceptors
+│   │   ├── MvuComponent.cs      # Base component classes
+│   │   ├── MvuResult.cs         # Functional result type
+│   │   ├── StatePersistence.cs   # localStorage/sessionStorage integration
+│   │   └── TimeTravel.cs        # Time-travel debugging support
+│   ├── BlazorMVU.Demo/          # Demo Blazor WebAssembly app
+│   │   ├── Components/          # Example MVU components (Counter, Todo, etc.)
+│   │   ├── Pages/               # Demo pages
+│   │   └── wwwroot/             # Static assets
+│   └── BlazorMVU.Tests/         # Unit tests (xUnit v3 + bUnit)
+├── build/                       # Nuke build scripts
+├── assets/                      # Documentation images
+└── BlazorMVU.sln               # Solution file
+```
+
+## Running the Tests
 
 Tests are located in the `BlazorMvu.Tests project`. You can run them using the .NET Core CLI:
 
@@ -255,25 +327,29 @@ Tests are located in the `BlazorMvu.Tests project`. You can run them using the .
 dotnet test
 ```
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Please read the [CONTRIBUTION GUIDELINES](https://github.com/Atypical-Consulting/BlazorMVU/blob/main/CONTRIBUTING.md) first.
 
-## 📜 License
+## License
 
 This project is licensed under the terms of the MIT license. If you use this library in your project, please consider adding a link to this repository in your project's README.
 
 This project is maintained by [Atypical Consulting](https://www.atypical.consulting/). If you need help with this project, please contact us from this repository by opening an issue.
 
-## 📬 Contact
+## Contact
 
 You can contact us by opening an issue on this repository.
 
-## 🙌 Acknowledgements
+## Acknowledgements
 
 * [All Contributors](../../contributors)
 * [Atypical Consulting](https://www.atypical.consulting/)
 
-## ✨ Contributors
+## Contributors
 
-[![Contributors](https://contrib.rocks/image?repo=Atypical-Consulting/BlazorMVU)](http://contrib.rocks)
+[![Contributors](https://contrib.rocks/image?repo=Atypical-Consulting/BlazorMVU)](https://github.com/Atypical-Consulting/BlazorMVU/graphs/contributors)
+
+---
+
+Built with care by [Atypical Consulting](https://atypical.garry-ai.cloud) — opinionated, production-grade open source.
