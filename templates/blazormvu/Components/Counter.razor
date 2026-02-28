@@ -1,0 +1,8 @@
+@using BlazorMVU
+@inherits MvuComponent<int, Counter.Msg>
+
+<div>
+  <button @onclick="@(() => Dispatch(Msg.Decrement))">-</button>
+  <span style="margin: 0 1rem; font-size: 1.5rem;">@State</span>
+  <button @onclick="@(() => Dispatch(Msg.Increment))">+</button>
+</div>

@@ -129,6 +129,22 @@ cd BlazorMvu
 dotnet build
 ```
 
+### Using the Template
+
+Install the template:
+
+```bash
+dotnet new install BlazorMVU.Templates
+```
+
+Create a new project:
+
+```bash
+dotnet new blazormvu -n MyApp
+cd MyApp
+dotnet run
+```
+
 ## Usage
 
 ### Basic Usage

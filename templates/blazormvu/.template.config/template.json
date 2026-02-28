@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Atypical Consulting",
+  "classifications": ["Web", "Blazor", "WebAssembly", "MVU"],
+  "identity": "BlazorMVU.ProjectTemplate",
+  "name": "BlazorMVU Application",
+  "shortName": "blazormvu",
+  "sourceName": "BlazorMVU.App",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "preferNameDirectory": true,
+  "symbols": {
+    "framework": {
+      "type": "parameter",
+      "description": "The target framework for the project.",
+      "datatype": "choice",
+      "choices": [
+        {
+          "choice": "net10.0",
+          "description": "Target .NET 10"
+        }
+      ],
+      "defaultValue": "net10.0",
+      "replaces": "net10.0"
+    }
+  }
+}

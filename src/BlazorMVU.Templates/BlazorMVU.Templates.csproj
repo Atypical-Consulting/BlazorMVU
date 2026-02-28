@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <PackageType>Template</PackageType>
+    <PackageId>BlazorMVU.Templates</PackageId>
+    <Version>1.0.0</Version>
+    <Title>BlazorMVU Project Templates</Title>
+    <Authors>Atypical Consulting</Authors>
+    <Company>Atypical Consulting SRL</Company>
+    <Description>Project templates for creating Blazor applications using the Model-View-Update (MVU) pattern with BlazorMVU.</Description>
+    <PackageTags>blazor;mvu;elm;functional;state-management;template;dotnet-new</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/Atypical-Consulting/BlazorMVU</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+
+    <IncludeContentInPack>true</IncludeContentInPack>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <ContentTargetFolders>content</ContentTargetFolders>
+    <NoDefaultExcludes>true</NoDefaultExcludes>
+    <NoWarn>$(NoWarn);NU5128</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="templates\**\*" Exclude="templates\**\bin\**;templates\**\obj\**" />
+    <Compile Remove="**\*" />
+  </ItemGroup>
+
+</Project>
