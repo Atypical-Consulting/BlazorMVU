@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> **This repository has moved.** The code now lives in **[Atypical-Consulting/blazor-state](https://github.com/Atypical-Consulting/blazor-state)** under [`libs/mvu`](https://github.com/Atypical-Consulting/blazor-state/tree/main/libs/mvu) — full git history preserved. This repository is archived (read-only).
+
 ![BlazorMVU banner](.github/banner.png)
 
 # BlazorMVU [![Sparkline](https://stars.medv.io/Atypical-Consulting/BlazorMVU.svg)](https://stars.medv.io/Atypical-Consulting/BlazorMVU)
